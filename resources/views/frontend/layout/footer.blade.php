@@ -2,14 +2,14 @@
      <div class="container">
         <div class="row p-3">
             <div class="col-lg-4">
-                <h4 class="text-start pt-3 font-weight-bold"  id="homepage_header">အသုံး၀င်သော ဝက်ဆိုဒ်များ</h4>
+                <h4 class="text-start pt-3 font-weight-bold"  id="homepage_header">{{ __('welcome.useful_link_title') }}</h4>
                 <hr>
                  <div class="mt-3" id="p1">
-                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">နိုင်ငံခြားရေးဝန်ကြီးဌာန</span></a></p>
-                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">ပြည်ထောင်စုလွှတ်တော်</span></a></p>
-                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">အမျိုးသားလွှတ်တော်</span></a></p>
-                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">ပြည်ထောင်စုအစိုးရအဖွဲ့ရုံးဝန်ကြီးဌာန</span></a></p>
-                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">ပြည်ထဲရေးဝန်ကြီးဌာန</span></a></p>
+                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">{{ __('welcome.useful_links.Ministry of Foreign Affairs') }}</span></a></p>
+                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">{{ __('welcome.useful_links.Union Hluttaw') }}</span></a></p>
+                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">{{ __('welcome.useful_links.National Assembly') }}</span></a></p>
+                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">{{ __('welcome.useful_links.Union Government Office Ministry') }}</span></a></p>
+                    <p> <a href="https://www.mofa.gov.mm/"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="pl-3">{{ __('welcome.useful_links.Ministry of Interior') }}</span></a></p>
                  </div>
                     
                  {{-- <nav aria-label="Page navigation example">
@@ -21,12 +21,12 @@
                   </nav> --}}
             </div>
             <div class="col-lg-4">
-                <h4 class="text-start pt-3 font-weight-bold"  id="homepage_header">ဆက်သွယ်ရန်</h4>
+                <h4 class="text-start pt-3 font-weight-bold"  id="homepage_header">{{ __('welcome.contact') }}</h4>
                 <hr>
                 <div>
-                    <p class="text-dark">ရုံးဖွင့်ချိန်</p>
-                    <p class="text-dark">တနင်္လာနေ့ မှ သောကြာနေ့ထိ</p>
-                    <p class="text-dark">နံနက် ၉းဝ၀ နာရီမှ ညနေ ၅းဝ၀ နာရီထိ</p>
+                    <p class="text-dark">{{ __('welcome.contact_lists.open_title') }}</p>
+                    <p class="text-dark">{{ __('welcome.contact_lists.open_day') }}</p>
+                    <p class="text-dark">{{ __('welcome.contact_lists.open_time') }}</p>
                 </div>
                 <hr>
                  <div class="mt-3 mb-3 col-lg-6">
@@ -39,7 +39,7 @@
                  </div>
             </div>
             <div class="col-lg-4">
-                <h4 class="text-start pt-3 font-weight-bold"  id="homepage_header">တည်နေရာပြ မြေပုံ</h4>
+                <h4 class="text-start pt-3 font-weight-bold"  id="homepage_header">{{__('welcome.Maps') }}</h4>
                 <hr>
                  <div class="mt-3">
                     

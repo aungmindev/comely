@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion toggled" id="accordionSidebar">
     
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -14,7 +14,7 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt text-dark"></i>
+            <i class="fas fa-fw fa-tachometer-alt text-dark fa-2x"></i>
             <span class="text-dark">Dashboard</span></a>
     </li>
 
@@ -29,7 +29,7 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('calendar.setting') }}">
-            <i class="fa-solid fa-calendar text-dark"></i>
+            <i class="fa-solid fa-calendar text-dark" style="font-size: 30px"></i>
             <span class="text-dark ml-2">Calendar</span></a>
     </li>
    
@@ -40,14 +40,22 @@
             <i class="fa-solid fa-newspaper text-dark"></i>
             <span class="text-dark ml-2">News</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="z-index:100">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
+                <h6 class="collapse-header">News Components:</h6>
+                <a class="collapse-item" href="{{ route('news.breaking') }}">Breaking News</a>
+                <a class="collapse-item" href="{{ route('news.hot') }}">Hot News</a>
+                <a class="collapse-item" href="{{ route('news.latest') }}">Latest News</a>
             </div>
         </div>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('gallery.index') }}">
+            <i class="fa-solid fa-photo-film text-dark"></i>
+            <span class="text-dark ml-2">Photo / Videos</span></a>
+    </li>
+    
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
@@ -73,43 +81,40 @@
 
     <!-- Heading -->
     <div class="sidebar-heading text-muted">
-        Addons
+         Setting
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
+    @can('all_access')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder text-dark"></i>
-            <span class="text-dark">Pages</span>
+            <span class="text-dark">Roles and Permissions</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                <h6 class="collapse-header">Roles and Permission</h6>
+                <a class="collapse-item" href="{{ route('role.index') }}">Roles</a>
+                <a class="collapse-item" href="{{ route('users.get') }}">Users</a>
                 <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
             </div>
         </div>
     </li>
-
+    @endcan
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-chart-area text-dark"></i>
             <span class="text-dark">Charts</span></a>
-    </li>
+    </li> --}}
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table text-dark"></i>
             <span class="text-dark">Tables</span></a>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

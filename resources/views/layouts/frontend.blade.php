@@ -22,10 +22,12 @@
         {{-- <script src="https://code.highcharts.com/highcharts.js"></script> --}}
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" style="height: 100vh">
         <x-jet-banner />
-
-        <div class="min-h-screen bg-gray-100">
+        <div id="loader" class="d-flex align-items-center justify-content-center" style="height : 100vh ; overflow-y : hidden ; background-color:grey">
+            <div class="loader"></div>
+        </div>
+        <div class="min-h-screen bg-gray-100" style="display: none ; overflow-y : hidden">
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow-sm" >
@@ -46,7 +48,15 @@
         @stack('modals')
 
         @livewireScripts
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script>
+             $(window).on('load', function () {
+                setTimeout(() => {
+                    $('#loader').addClass('d-none')
+                $('.min-h-screen').css('display' , 'block')
+                }, 1000);
+            });
 
-
+        </script>
     </body>
 </html>

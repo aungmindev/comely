@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
+
         <!-- Styles -->
         @livewireStyles
 
@@ -50,14 +51,22 @@
         @stack('modals')
 
         @livewireScripts
-        <script src="{{ asset('js/popper.min.js') }}"></script>
-
+        <script src="{{ asset('js/tiny.js') }}" referrerpolicy="origin"></script>
         <script src="{{ asset('js/app.js') }}"></script>
-
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
         <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
         <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+        
+        <script>
+            tinymce.init({
+              selector: 'textarea#editor',
+              skin: 'bootstrap',
+              plugins: 'lists, link, image, media',
+              toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+              menubar: false,
+              });
+          </script>
     </body>
 </html>

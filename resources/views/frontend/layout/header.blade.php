@@ -3,10 +3,10 @@
         <div class="col-md-4">
             <span class="d-inline-block">
                 <i class="fa-solid fa-globe shadow-sm p-2 rounded-circle border  d-inline" id="iconColor" style="font-size:25px"></i>
-            </span>
-            <span class="d-inline-block ml-2 text-danger">Myanmar</span>
+            </span> 
+            <a href="{{ route('locale.language' , ['language' => 'mm']) }}"><p class="d-inline-block ml-2 {{ session('locale') == 'mm' ? 'text-danger font-weight-bold' : '' }}">Myanmar</p></a>
             <span class="d-inline-block ml-2 font-weight-bold">|</span>
-            <span class="d-inline-block ml-2">English</span>
+            <a href="{{ route('locale.language' , ['language' => 'en']) }}"><p class="d-inline-block ml-2 {{ session('locale') == 'en' ? 'text-danger font-weight-bold' : '' }}" >English</p></a>
         </div>
 
         <div class="col-md-4 ">

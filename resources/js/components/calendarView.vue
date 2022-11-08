@@ -67,8 +67,9 @@
           axios
           .post("/calendar/setting/get", this.lists)
           .then(function (response) {
-            console.log(response.data)
-            point.lists = response.data
+              if(response.data != 'no-data'){
+                point.lists = response.data
+              }
           });
         }
     }

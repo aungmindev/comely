@@ -13,7 +13,7 @@
                 
                   <div class="d-flex justify-content-center mb-2" v-on:click="setColor(day)" :style="{cursor : day.weekday == 1 || day.weekday == 7 ? 'not-allowed' :'pointer'}">
                    
-                    <div id="calender_mark" v-if="currentDate == day.year +'-'+day.month"
+                    <div id="calender_mark" v-if="currentDate == day.year +'-'+day.month || currentDate < day.year +'-'+day.month"
                      :class="[day.weekday == 1 || day.weekday == 7 ? 'bg-danger' : getColor(day)] "
                       class=" d-flex align-items-center justify-content-center">{{day.day}}
                     </div>
@@ -90,6 +90,7 @@
         
         methods : {
           setColor(day){
+            if(day.year +'-'+day.month == this.currentDate){
               if(day.weekday == 1 || day.weekday == 7){
                 
               }else{
@@ -98,6 +99,19 @@
                   this.lists[day.day] = 'bg-success'
                 }
               }
+            }else{
+              const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 5000,
+                    });
+              Toast.fire({
+                      icon: 'error',
+                      title: 'Calendar configuration is allowed for current month only.',
+                    });
+            }
+              
             },
 
             removeEditDate(index){
@@ -151,8 +165,10 @@
           axios
           .post("/calendar/setting/get", this.lists)
           .then(function (response) {
-            console.log(response.data)
-            point.lists = response.data
+            // console.log(response.data)
+              if(response.data != 'no-data'){
+                point.lists = response.data
+              }
           });
         }
     }

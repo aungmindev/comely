@@ -27771,11 +27771,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     setColor: function setColor(day) {
-      if (day.weekday == 1 || day.weekday == 7) {} else {
-        if (!this.editingLists.includes(day.day)) {
-          this.editingLists.push(day.day);
-          this.lists[day.day] = 'bg-success';
+      if (day.year + '-' + day.month == this.currentDate) {
+        if (day.weekday == 1 || day.weekday == 7) {} else {
+          if (!this.editingLists.includes(day.day)) {
+            this.editingLists.push(day.day);
+            this.lists[day.day] = 'bg-success';
+          }
         }
+      } else {
+        var Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 5000
+        });
+        Toast.fire({
+          icon: 'error',
+          title: 'Calendar configuration is allowed for current month only.'
+        });
       }
     },
     removeEditDate: function removeEditDate(index) {
@@ -27817,8 +27830,10 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var point = this;
     axios.post("/calendar/setting/get", this.lists).then(function (response) {
-      console.log(response.data);
-      point.lists = response.data;
+      // console.log(response.data)
+      if (response.data != 'no-data') {
+        point.lists = response.data;
+      }
     });
   }
 });
@@ -27858,8 +27873,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var point = this;
     axios.post("/calendar/setting/get", this.lists).then(function (response) {
-      console.log(response.data);
-      point.lists = response.data;
+      if (response.data != 'no-data') {
+        point.lists = response.data;
+      }
     });
   }
 });
@@ -28295,7 +28311,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
           cursor: day.weekday == 1 || day.weekday == 7 ? 'not-allowed' : 'pointer'
         })
-      }, [$data.currentDate == day.year + '-' + day.month ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      }, [$data.currentDate == day.year + '-' + day.month || $data.currentDate < day.year + '-' + day.month ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
         key: 0,
         id: "calender_mark",
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([[day.weekday == 1 || day.weekday == 7 ? 'bg-danger' : $options.getColor(day)], "d-flex align-items-center justify-content-center"])

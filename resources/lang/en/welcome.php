@@ -1,0 +1,41 @@
+<?php
+
+return [
+    'findmp'             => 'You can view the profile details using the name of the member of parliament and the region and state.',
+    'mpname_placeholder' => "Type MP's name",
+    'mp_region'          => "Choose state",
+    "Session's Calendar" => "Session's Calendar",
+    "calendar_body"      => "Our government consists of different boards and departments that work every day to ensure the best conditions for our citizens and visitors to the city.",
+        'Office_holidays'   =>'Office holidays',
+        'session_close'     =>'The dates of the parliamentary session adjournment',
+        'scheduled_dates'   =>'Scheduled dates for the meeting of the Parliament',
+    "News"               => "News",
+    "news_body"          => "Our government consists of different boards and departments that work every day to ensure the best conditions for our citizens and visitors to the city.",
+    "Breaking News"      => "Breaking News",
+    "Hot News"           => "Hot News",
+    "Latest News"        => "Latest News",
+    "History"            => "History",
+    "Gallery"            => "Photos / Videos",
+    "useful_link_title"  => "Useful Links",
+    "useful_links"       => [
+        'Ministry of Foreign Affairs'       => 'Ministry of Foreign Affairs',
+        'Union Hluttaw'                     => 'Union Hluttaw',
+        'National Assembly'                 => 'National Assembly',
+        'Union Government Office Ministry'  => 'Union Government Office Ministry',
+        'Ministry of Interior'              => 'Ministry of Interior',
+    ],
+    "contact"            => "Contact us",
+    "contact_lists"      => [
+        'open_title' => "Office opening hours",
+        'open_day'   => "Monday to Friday",
+        'open_time'  => "From 9:00 am to 5:00 pm",
+    ],
+    "Maps"               => "Maps",
+
+    "Gallery"            => "Gallery",
+    "Photo_btn"          => "Photos",
+    "Video_btn"          => "Videos",
+    "continue"           => "Continue",
+    "view_all"           => "View All",
+    "find"               => "Find",
+];

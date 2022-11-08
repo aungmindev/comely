@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Calendar;
+use App\Models\Gallery;
+use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-class CalendarController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,11 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        return view('backend.calendar.calendar');
+        
+        $news = News::all()->groupBy('news_category_id');
+        $photo_videos = Gallery::all()->groupBy('is_image');
+        // return session()->get('locale');
+        return view('welcome' , compact('news' , 'photo_videos'));
     }
 
     /**
@@ -36,16 +42,7 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
-        Calendar::updateOrcreate([
-            'schedule_date' => date('Y-m-d'),
-            
-        ],[
-            'schedule_date' => date('Y-m-d'),
-            'lists'         => json_encode($request->all()),
-        ]);
-        return response()->json([
-            'status' => 200,
-        ]);
+        //
     }
 
     /**
@@ -54,14 +51,9 @@ class CalendarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getLists()
+    public function show($id)
     {
-        $lists = Calendar::whereMonth('schedule_date' , date('m'))->whereYear('schedule_date' , date('Y'))->first();
-        if($lists){
-            return json_decode($lists->lists);
-        }else{
-            return 'no-data';
-        }
+        //
     }
 
     /**

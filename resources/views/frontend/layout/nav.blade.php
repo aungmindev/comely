@@ -12,11 +12,11 @@
 
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
               <li class="has-children ">
-                    <a href="#meeting" class="nav-link " id="nav_text">အစည်းအဝေး <i class="fa-solid fa-caret-down"></i></a>
+                    <a href="#meeting" class="nav-link" id="nav_text">@lang('menu.Session')<i class="fa-solid fa-caret-down ml-2"></i></a>
                     <ul class="dropdown" style="z-index: 999999">
-                    <li><a href="#team-section" class="nav-link">ပုံမှန်အစည်းအဝေး</a></li>
-                    <li><a href="#pricing-section" class="nav-link">အထူးအစည်းအဝေး</a></li>
-                    <li><a href="#faq-section" class="nav-link">အရေးပေါ်အစည်းအဝေး</a></li>
+                    <li><a href="#team-section" class="nav-link">{{ __('menu.Regular Session') }}</a></li>
+                    <li><a href="#pricing-section" class="nav-link">{{ __('menu.Special Session') }}</a></li>
+                    <li><a href="#faq-section" class="nav-link">{{ __('menu.Special Session') }}</a></li>
                     {{-- <li class="has-children">
                         <a href="#">More Links</a>
                         <ul class="dropdown">
@@ -28,10 +28,10 @@
                     </ul>
             </li>
               <li class="has-children">
-                    <a href="#question" class="nav-link" id="nav_text">အဆိုမေးခွန်းများ <i class="fa-solid fa-caret-down"></i></a>
+                    <a href="#question" class="nav-link" id="nav_text">{{ __('menu.Question') }} <i class="fa-solid fa-caret-down ml-2"></i></a>
                     <ul class="dropdown" style="z-index: 999999">
-                    <li><a href="#team-section" class="nav-link">ကြယ်ပြ</a></li>
-                    <li><a href="#pricing-section" class="nav-link">ကြယ်မပြ</a></li>
+                    <li><a href="#team-section" class="nav-link">{{ __('menu.Show Star') }}</a></li>
+                    <li><a href="#pricing-section" class="nav-link">{{ __('menu.No Star') }}</a></li>
                     
                     </ul>
               </li>
@@ -39,30 +39,27 @@
               
 
             <li class="has-children">
-                <a href="#question" class="nav-link" id="nav_text">ဥပဒေပြုရေး <i class="fa-solid fa-caret-down"></i></a>
+                <a href="#question" class="nav-link" id="nav_text">{{ __('menu.Laws') }}<i class="fa-solid fa-caret-down ml-2"></i></a>
                 <ul class="dropdown" style="z-index: 999999">
-                <li><a href="#team-section" class="nav-link">ဥပဒေကြမ်း</a></li>
-                <li><a href="#pricing-section" class="nav-link">ပြငှာန်းပီး ဥပဒေ</a></li>
+                <li><a href="#team-section" class="nav-link">{{ __('menu.Draft Law') }}</a></li>
+                <li><a href="#pricing-section" class="nav-link">{{ __('menu.Lease law') }}</a></li>
                
                 </ul>
           </li>
 
           <li class="has-children">
-            <a href="#question" class="nav-link" id="nav_text">ကော်မတီ / အဖွဲ့ <i class="fa-solid fa-caret-down"></i></a>
+            <a href="#question" class="nav-link" id="nav_text">{{ __('menu.Committees') }}<i class="fa-solid fa-caret-down ml-2"></i></a>
             <ul class="dropdown" style="z-index: 999999">
-            <li><a href="#team-section" class="nav-link">ကော်မတီ၁</a></li>
-            <li><a href="#pricing-section" class="nav-link">ကော်မတီ၂</a></li>
-            <li><a href="#faq-section" class="nav-link">ကော်မတီ၃</a></li>
-            <li><a href="#gallery-section" class="nav-link">ကော်မတီ၄</a></li>
-            <li><a href="#services-section" class="nav-link">ကော်မတီ၅</a></li>
+            <li><a href="#team-section" class="nav-link">{{ __('menu.Committee1') }}</a></li>
+            <li><a href="#pricing-section" class="nav-link">{{ __('menu.Committee2') }}</a></li>
             
             </ul>
       </li>
 
               
               
-              <li><a href="#blog-section" class="nav-link" id="nav_text">မှတ်တမ်း</a></li>
-              <li><a href="#blog-section" class="nav-link" id="nav_text">လွှတ်တော်အကြောင်း သိကောင်းစရာ</a></li>
+              <li><a href="#blog-section" class="nav-link" id="nav_text">{{ __('menu.History') }}</a></li>
+              <li><a href="#blog-section" class="nav-link" id="nav_text">{{ __('menu.About') }}</a></li>
               {{-- <li><a href="#contact-section" class="nav-link">Contact</a></li>
               <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
               <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
