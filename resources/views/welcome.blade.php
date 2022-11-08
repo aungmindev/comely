@@ -102,7 +102,7 @@
                               <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                             </div>
                             <div class="p-0 mt-lg-2 mt-4">
-                              <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
+                              <h5>{!! mb_substr($breakingNews->title_en , 0 , 40) !!}</h5>
                               <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                           </div>
                           </div>
@@ -144,7 +144,7 @@
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
                         <div class="p-0 mt-lg-2 mt-4">
-                          <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
+                          <h5>{!! mb_substr($breakingNews->title_en , 0 , 40) !!}</h5>
                           <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                       </div>
                       </div>
@@ -183,7 +183,7 @@
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
                         <div class="p-0 mt-lg-2 mt-4">
-                          <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
+                          <h5>{!! mb_substr($breakingNews->title_en , 0 , 40) !!}</h5>
                           <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                       </div>
                       </div>
