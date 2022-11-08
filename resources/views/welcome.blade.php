@@ -82,9 +82,9 @@
                       @foreach ($news[1] as $breakingNews)
                         @if(session()->get('locale') == 'mm')
                         <div class="card shadow-md border rounded-0 rounded-top p-2">
-                          <div class="row card-body">
+                          <div class=" card-body">
                             <div class="col-lg-6 d-flex justify-content-center">
-                              <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
+                              <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                             </div>
                             <div class="col-lg-6 p-0 mt-lg-0 mt-4">
                               <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
@@ -99,7 +99,7 @@
                         <div class="card shadow-md border rounded-0 rounded-top p-2">
                           <div class="row card-body">
                             <div class="col-lg-6 d-flex justify-content-center">
-                              <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
+                              <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                             </div>
                             <div class="col-lg-6 p-0 mt-lg-0 mt-4">
                               <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
@@ -126,7 +126,7 @@
                     <div class="card shadow-md border rounded-0 rounded-top p-2">
                       <div class="row card-body">
                         <div class="col-lg-6 d-flex justify-content-center">
-                          <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
+                          <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
                         <div class="col-lg-6 p-0 mt-lg-0 mt-4">
                           <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
@@ -141,7 +141,7 @@
                     <div class="card shadow-md border rounded-0 rounded-top p-2">
                       <div class="row card-body">
                         <div class="col-lg-6 d-flex justify-content-center">
-                          <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
+                          <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
                         <div class="col-lg-6 p-0 mt-lg-0 mt-4">
                           <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
@@ -165,7 +165,7 @@
                     <div class="card shadow-md border rounded-0 rounded-top p-2">
                       <div class="row card-body">
                         <div class="col-lg-6 d-flex justify-content-center">
-                          <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
+                          <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
                         <div class="col-lg-6 p-0 mt-lg-0 mt-4">
                           <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
@@ -180,7 +180,7 @@
                     <div class="card shadow-md border rounded-0 rounded-top p-2">
                       <div class="row card-body">
                         <div class="col-lg-6 d-flex justify-content-center">
-                          <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
+                          <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
                         <div class="col-lg-6 p-0 mt-lg-0 mt-4">
                           <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
@@ -239,18 +239,13 @@
                  </div>
 
                  <div class="row mt-3">
+                  @foreach ($photo_videos as $photo_video)
                     <div class="col-lg-3 d-flex justify-content-center mt-2 mt-lg-0">
-                       <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/image_video/(1)22.1.2021.jpg') }}">
+                       <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image) }}">
                     </div>
-                    <div class="col-lg-3  d-flex justify-content-center mt-2 mt-lg-0">
-                       <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/image_video/(1)22.1.2021.jpg') }}">
-                    </div>
-                    <div class="col-lg-3  d-flex justify-content-center mt-2 mt-lg-0">
-                      <img id="image_video_image" class=" img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/news/7.jpeg') }}">
-                    </div>
-                    <div class="col-lg-3  d-flex justify-content-center mt-2 mt-lg-0">
-                      <img id="image_video_image" class=" img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/news/7.jpeg') }}">
-                    </div>
+                  @endforeach
+                   
+                    
                  </div>
               </div>
            </div>
