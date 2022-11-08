@@ -88,7 +88,7 @@
                             </div>
                             <div class="p-0 mt-lg-2 mt-4">
                               <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
-                              <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
+                              <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body) , 0 , 200) !!} ...</p>
                           </div>
                           </div>
                             <div class="card-footer">
@@ -103,7 +103,7 @@
                             </div>
                             <div class="p-0 mt-lg-2 mt-4">
                               <h5>{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
-                              <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
+                              <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body)_en , 0 , 100) !!}</p>
                           </div>
                           </div>
                             <div class="card-footer">
@@ -130,7 +130,7 @@
                         </div>
                         <div class=" p-0 mt-lg-2 mt-4">
                           <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
-                          <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
+                          <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body) , 0 , 200) !!} ...</p>
                       </div>
                       </div>
                         <div class="card-footer">
@@ -145,7 +145,7 @@
                         </div>
                         <div class="p-0 mt-lg-2 mt-4">
                           <h5>{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
-                          <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
+                          <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body)_en , 0 , 100) !!}</p>
                       </div>
                       </div>
                         <div class="card-footer">
@@ -169,7 +169,7 @@
                         </div>
                         <div class="p-0 mt-lg-2 mt-4">
                           <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
-                          <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
+                          <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body) , 0 , 200) !!} ...</p>
                       </div>
                       </div>
                         <div class="card-footer">
@@ -184,7 +184,7 @@
                         </div>
                         <div class="p-0 mt-lg-2 mt-4">
                           <h5>{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
-                          <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
+                          <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body)_en , 0 , 100) !!}</p>
                       </div>
                       </div>
                         <div class="card-footer">
