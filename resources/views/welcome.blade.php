@@ -239,7 +239,7 @@
                  </div>
 
                  <div class="row mt-3">
-                  @foreach ($photo_videos as $photo_video)
+                  @foreach ($photo_videos[1] as $photo_video)
                     <div class="col-lg-3 d-flex justify-content-center mt-2 mt-lg-0">
                        <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image_or_video) }}">
                     </div>
