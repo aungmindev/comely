@@ -81,12 +81,12 @@
                       <h4 class="mb-4">{{ __('welcome.Breaking News') }} <p class="d-inline btn btn-danger float-end btn-sm">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></p></h4>
                       @foreach ($news[1] as $breakingNews)
                         @if(session()->get('locale') == 'mm')
-                        <div style="height : 28rem" class="card shadow-md border rounded-0 rounded-top p-2">
+                        <div  class="card shadow-md border rounded-0 rounded-top p-2">
                           <div class=" card-body">
                             <div class=" d-flex justify-content-center">
                               <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                             </div>
-                            <div class="p-0 mt-lg-2 mt-4">
+                            <div style="height : 14rem" class="p-0 mt-lg-2 mt-4">
                               <h5 class="text-center">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
                               <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</p>
                           </div>
@@ -96,12 +96,12 @@
                             </div>
                         </div>
                         @else
-                        <div style="height : 28rem" class="card shadow-md border rounded-0 rounded-top p-2">
+                        <div  class="card shadow-md border rounded-0 rounded-top p-2">
                           <div class="row card-body">
                             <div class=" d-flex justify-content-center">
                               <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                             </div>
-                            <div class="p-0 mt-lg-2 mt-4">
+                            <div style="height : 14rem" class="p-0 mt-lg-2 mt-4">
                               <h5 class="text-center">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
                               <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 100) !!}</p>
                           </div>
@@ -123,12 +123,12 @@
                     <h4 class="mb-4">{{ __('welcome.Hot News') }} <p class="d-inline btn btn-danger float-end btn-sm">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></p></h4>
                     @foreach ($news[2] as $breakingNews)
                     @if(session()->get('locale') == 'mm')
-                    <div style="height : 28rem" class="card shadow-md border rounded-0 rounded-top p-2">
+                    <div  class="card shadow-md border rounded-0 rounded-top p-2">
                       <div class=" card-body">
                         <div class=" d-flex justify-content-center">
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
-                        <div class=" p-0 mt-lg-2 mt-4">
+                        <div style="height : 14rem" class=" p-0 mt-lg-2 mt-4">
                           <h5 class="text-center">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
                           <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</p>
                       </div>
@@ -138,12 +138,12 @@
                         </div>
                     </div>
                     @else
-                    <div style="height : 28rem" class="card shadow-md border rounded-0 rounded-top p-2">
+                    <div  class="card shadow-md border rounded-0 rounded-top p-2">
                       <div class=" card-body">
                         <div class=" d-flex justify-content-center">
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
-                        <div class="p-0 mt-lg-2 mt-4">
+                        <div style="height : 14rem" class="p-0 mt-lg-2 mt-4">
                           <h5 class="text-center">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
                           <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 100) !!}</p>
                       </div>
@@ -162,12 +162,12 @@
                     <h4 class="mb-4">{{ __('welcome.Latest News') }} <p class="d-inline btn btn-danger float-end btn-sm">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right  ml-2"></i></p></h4>
                     @foreach ($news[3] as $breakingNews)
                     @if(session()->get('locale') == 'mm')
-                    <div style="height : 28rem" class="card shadow-md border rounded-0 rounded-top p-2">
+                    <div  class="card shadow-md border rounded-0 rounded-top p-2">
                       <div class=" card-body">
                         <div class="d-flex justify-content-center">
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
-                        <div class="p-0 mt-lg-2 mt-4">
+                        <div style="height : 14rem" class="p-0 mt-lg-2 mt-4">
                           <h5 class="text-center">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
                           <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</p>
                       </div>
@@ -177,12 +177,12 @@
                         </div>
                     </div>
                     @else
-                    <div style="height : 28rem" class="card shadow-md border rounded-0 rounded-top p-2">
+                    <div  class="card shadow-md border rounded-0 rounded-top p-2">
                       <div class=" card-body">
                         <div class="d-flex justify-content-center">
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
-                        <div class="p-0 mt-lg-2 mt-4">
+                        <div style="height : 14rem" class="p-0 mt-lg-2 mt-4">
                           <h5 class="text-center">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
                           <p class="text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 100) !!}</p>
                       </div>
