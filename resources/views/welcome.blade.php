@@ -87,8 +87,8 @@
                               <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
                             </div>
                             <div class="col-lg-6 p-0 mt-lg-0 mt-4">
-                              <h5>{!! substr($breakingNews->title  , 0 ,60)!!}</h5>
-                              <p class="text-start text-muted">{!! substr($breakingNews->body , 0 , 200) !!} ...</p>
+                              <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
+                              <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
                           </div>
                           </div>
                             <div class="card-footer">
@@ -102,8 +102,8 @@
                               <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
                             </div>
                             <div class="col-lg-6 p-0 mt-lg-0 mt-4">
-                              <h5>{!! substr($breakingNews->title_en , 0 , 15) !!}</h5>
-                              <p class="text-start text-muted">{!! substr($breakingNews->body_en , 0 , 100) !!}</p>
+                              <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
+                              <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                           </div>
                           </div>
                             <div class="card-footer">
@@ -129,8 +129,8 @@
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
                         </div>
                         <div class="col-lg-6 p-0 mt-lg-0 mt-4">
-                          <h5>{!! substr($breakingNews->title  , 0 ,60)!!}</h5>
-                          <p class="text-start text-muted">{!! substr($breakingNews->body , 0 , 200) !!} ...</p>
+                          <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
+                          <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
                       </div>
                       </div>
                         <div class="card-footer">
@@ -144,8 +144,8 @@
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
                         </div>
                         <div class="col-lg-6 p-0 mt-lg-0 mt-4">
-                          <h5>{!! substr($breakingNews->title_en , 0 , 15) !!}</h5>
-                          <p class="text-start text-muted">{!! substr($breakingNews->body_en , 0 , 100) !!}</p>
+                          <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
+                          <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                       </div>
                       </div>
                         <div class="card-footer">
@@ -168,8 +168,8 @@
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
                         </div>
                         <div class="col-lg-6 p-0 mt-lg-0 mt-4">
-                          <h5>{!! substr($breakingNews->title  , 0 ,60)!!}</h5>
-                          <p class="text-start text-muted">{!! substr($breakingNews->body , 0 , 200) !!} ...</p>
+                          <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
+                          <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
                       </div>
                       </div>
                         <div class="card-footer">
@@ -183,8 +183,8 @@
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/2.jpeg') }}">
                         </div>
                         <div class="col-lg-6 p-0 mt-lg-0 mt-4">
-                          <h5>{!! substr($breakingNews->title_en , 0 , 15) !!}</h5>
-                          <p class="text-start text-muted">{!! substr($breakingNews->body_en , 0 , 100) !!}</p>
+                          <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
+                          <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                       </div>
                       </div>
                         <div class="card-footer">
