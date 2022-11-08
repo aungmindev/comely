@@ -83,10 +83,10 @@
                         @if(session()->get('locale') == 'mm')
                         <div class="card shadow-md border rounded-0 rounded-top p-2">
                           <div class=" card-body">
-                            <div class="col-lg-6 d-flex justify-content-center">
+                            <div class=" d-flex justify-content-center">
                               <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                             </div>
-                            <div class="col-lg-6 p-0 mt-lg-0 mt-4">
+                            <div class="p-0 mt-lg-2 mt-4">
                               <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
                               <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
                           </div>
@@ -98,10 +98,10 @@
                         @else
                         <div class="card shadow-md border rounded-0 rounded-top p-2">
                           <div class="row card-body">
-                            <div class="col-lg-6 d-flex justify-content-center">
+                            <div class=" d-flex justify-content-center">
                               <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                             </div>
-                            <div class="col-lg-6 p-0 mt-lg-0 mt-4">
+                            <div class="p-0 mt-lg-2 mt-4">
                               <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
                               <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                           </div>
@@ -124,11 +124,11 @@
                     @foreach ($news[2] as $breakingNews)
                     @if(session()->get('locale') == 'mm')
                     <div class="card shadow-md border rounded-0 rounded-top p-2">
-                      <div class="row card-body">
-                        <div class="col-lg-6 d-flex justify-content-center">
+                      <div class=" card-body">
+                        <div class=" d-flex justify-content-center">
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
-                        <div class="col-lg-6 p-0 mt-lg-0 mt-4">
+                        <div class=" p-0 mt-lg-2 mt-4">
                           <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
                           <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
                       </div>
@@ -139,11 +139,11 @@
                     </div>
                     @else
                     <div class="card shadow-md border rounded-0 rounded-top p-2">
-                      <div class="row card-body">
-                        <div class="col-lg-6 d-flex justify-content-center">
+                      <div class=" card-body">
+                        <div class=" d-flex justify-content-center">
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
-                        <div class="col-lg-6 p-0 mt-lg-0 mt-4">
+                        <div class="p-0 mt-lg-2 mt-4">
                           <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
                           <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                       </div>
@@ -163,11 +163,11 @@
                     @foreach ($news[3] as $breakingNews)
                     @if(session()->get('locale') == 'mm')
                     <div class="card shadow-md border rounded-0 rounded-top p-2">
-                      <div class="row card-body">
-                        <div class="col-lg-6 d-flex justify-content-center">
+                      <div class=" card-body">
+                        <div class="d-flex justify-content-center">
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
-                        <div class="col-lg-6 p-0 mt-lg-0 mt-4">
+                        <div class="p-0 mt-lg-2 mt-4">
                           <h5>{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
                           <p class="text-start text-muted">{!! mb_substr($breakingNews->body , 0 , 200) !!} ...</p>
                       </div>
@@ -178,11 +178,11 @@
                     </div>
                     @else
                     <div class="card shadow-md border rounded-0 rounded-top p-2">
-                      <div class="row card-body">
-                        <div class="col-lg-6 d-flex justify-content-center">
+                      <div class=" card-body">
+                        <div class="d-flex justify-content-center">
                           <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
                         </div>
-                        <div class="col-lg-6 p-0 mt-lg-0 mt-4">
+                        <div class="p-0 mt-lg-2 mt-4">
                           <h5>{!! mb_substr($breakingNews->title_en , 0 , 15) !!}</h5>
                           <p class="text-start text-muted">{!! mb_substr($breakingNews->body_en , 0 , 100) !!}</p>
                       </div>
