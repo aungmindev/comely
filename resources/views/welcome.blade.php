@@ -88,7 +88,7 @@
                   </div>
                </div>
             </div>
-            <div id="news" class="bg-white mt-2 shadow-sm pb-5" >
+            {{-- <div id="news" class="bg-white mt-2 shadow-sm pb-5" >
               <div class="container">
                <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.News') }}</h4>
                <p class="text-start mt-4 text-muted" id="homepage_sub_header">{{ __('welcome.news_body') }}</p>
@@ -217,7 +217,7 @@
                  
               </div>
               </div>
-           </div>
+           </div> --}}
             <div id="news" class="mt-2 shadow-sm pb-5 pb-md-5">
               <div class="container">
                <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.Gallery') }}</h4>
@@ -232,26 +232,30 @@
                 
               </ul>
 
-                 <div class="row mt-3">
+                 <div class=" mt-3">
 
                   <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                       @if (isset($photo_videos[1]))
-                      @foreach ($photo_videos[1] as $photo_video)
-                      <div class="tab-pane fade show active col-lg-3 d-flex justify-content-center mt-2 mt-lg-0">
-                        <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image_or_video) }}">
-                      </div>
-                    @endforeach
-                  @endif
+                        <div class="tab-pane fade show active  row mt-2 mt-lg-0">
+                        @foreach ($photo_videos[1] as $photo_video)
+                            <div class="col-lg-3">
+                              <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image_or_video) }}">
+                            </div>
+                            @endforeach
+                        </div>
+                      @endif
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                       @if (isset($photo_videos[0]))
-                          @foreach ($photo_videos[0] as $photo_video)
-                          <div class="tab-pane fade show active col-lg-3 d-flex justify-content-center mt-2 mt-lg-0">
-                            <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image_or_video) }}">
-                          </div>
-                        @endforeach
+                        <div class="tab-pane fade show active  row mt-2 mt-lg-0">
+                        @foreach ($photo_videos[0] as $photo_video)
+                            <div class="col-lg-3">
+                              <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image_or_video) }}">
+                            </div>
+                            @endforeach
+                        </div>
                       @endif
                     </div>
                   </div>
