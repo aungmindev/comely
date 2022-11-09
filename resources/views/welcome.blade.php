@@ -88,7 +88,7 @@
                   </div>
                </div>
             </div>
-            {{-- <div id="news" class="bg-white mt-2 shadow-sm pb-5" >
+            <div id="news" class="bg-white mt-2 shadow-sm pb-5" >
               <div class="container">
                <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.News') }}</h4>
                <p class="text-start mt-4 text-muted" id="homepage_sub_header">{{ __('welcome.news_body') }}</p>
@@ -217,7 +217,7 @@
                  
               </div>
               </div>
-           </div> --}}
+           </div>
             <div id="news" class="mt-2 shadow-sm pb-5 pb-md-5">
               <div class="container">
                <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.Gallery') }}</h4>
