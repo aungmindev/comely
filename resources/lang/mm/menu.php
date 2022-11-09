@@ -2,6 +2,7 @@
 
 return [
     'Session'           => 'အစည်းအဝေး',
+    'Home'           => 'ပင်မစာမျက်နှာ',
     'Regular Session'   => 'ပုံမှန်အစည်းအဝေး',
     'Special Session'   => 'အထူးအစည်းအဝေး',
     'Emergency Session' => 'အရေးပေါ်အစည်းအဝေး',

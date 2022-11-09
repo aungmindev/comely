@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-md-4 ">
-            <img src="{{ asset('images/logo.png') }}">
+           <a href="{{ url('/') }}"> <img src="{{ asset('images/logo.png') }}"></a>
         </div>
        
         <div class="col-md-4">

@@ -11,12 +11,14 @@
           <nav class="site-navigation position-relative " role="navigation">
 
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+              <li><a href="{{ url('/') }}" class="nav-link" id="nav_text">{{ __('menu.Home') }}</a></li>
+
               <li class="has-children ">
                     <a href="#meeting" class="nav-link" id="nav_text">@lang('menu.Session')<i class="fa-solid fa-caret-down ml-2"></i></a>
                     <ul class="dropdown" style="z-index: 999999">
-                    <li><a href="#team-section" class="nav-link">{{ __('menu.Regular Session') }}</a></li>
-                    <li><a href="#pricing-section" class="nav-link">{{ __('menu.Special Session') }}</a></li>
-                    <li><a href="#faq-section" class="nav-link">{{ __('menu.Special Session') }}</a></li>
+                    <li><a href="{{ route('app.view' , ['view' => 'frontend.section.breaking']) }}" class="nav-link">{{ __('menu.Regular Session') }}</a></li>
+                    <li><a  href="{{ route('app.view' , ['view' => 'frontend.section.special']) }}">{{ __('menu.Special Session') }}</a></li>
+                    <li><a href="{{ route('app.view' , ['view' => 'frontend.section.emergency']) }}" class="nav-link">{{ __('menu.Emergency Session') }}</a></li>
                     {{-- <li class="has-children">
                         <a href="#">More Links</a>
                         <ul class="dropdown">
@@ -41,8 +43,8 @@
             <li class="has-children">
                 <a href="#question" class="nav-link" id="nav_text">{{ __('menu.Laws') }}<i class="fa-solid fa-caret-down ml-2"></i></a>
                 <ul class="dropdown" style="z-index: 999999">
-                <li><a href="#team-section" class="nav-link">{{ __('menu.Draft Law') }}</a></li>
-                <li><a href="#pricing-section" class="nav-link">{{ __('menu.Lease law') }}</a></li>
+                <li><a href="{{ route('app.view' , ['view' => 'frontend.law.draft']) }}" class="nav-link">{{ __('menu.Draft Law') }}</a></li>
+                <li><a href="{{ route('app.view' , ['view' => 'frontend.law.lease']) }}" class="nav-link">{{ __('menu.Lease law') }}</a></li>
                
                 </ul>
           </li>
@@ -58,8 +60,8 @@
 
               
               
-              <li><a href="#blog-section" class="nav-link" id="nav_text">{{ __('menu.History') }}</a></li>
-              <li><a href="#blog-section" class="nav-link" id="nav_text">{{ __('menu.About') }}</a></li>
+              <li><a href="{{ route('app.view' , ['view' => 'frontend.history.history']) }}" class="nav-link" id="nav_text">{{ __('menu.History') }}</a></li>
+              <li><a href="{{ route('app.view' , ['view' => 'frontend.about.about']) }}" class="nav-link" id="nav_text">{{ __('menu.About') }}</a></li>
               {{-- <li><a href="#contact-section" class="nav-link">Contact</a></li>
               <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
               <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>

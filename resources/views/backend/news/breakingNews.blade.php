@@ -36,7 +36,7 @@
                                             </div>
                                             <div class="col-md-9 pt-3">
                                                 <h5>{{ $breakingNew->title }}</h5>
-                                                <p>{!! substr($breakingNew->body , 0 , 1000) !!}</p>
+                                                <p>{!! mb_substr($breakingNew->body , 0 , 1000) !!}</p>
                                             </div>
                                         </div>
                                     </div>

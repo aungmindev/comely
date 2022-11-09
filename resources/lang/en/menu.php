@@ -2,6 +2,7 @@
 
 return [
     'Session'           => 'Session',
+    'Home'           => 'Home',
     'Regular Session'   => 'Regular Session',
     'Special Session'   => 'Special Session',
     'Emergency Session' => 'Emergency Session',
@@ -10,7 +11,7 @@ return [
     'Show Star'          => 'Show Star',
     'No Star'            => 'No Star',
 
-    'Laws'           => 'Question',
+    'Laws'           => 'Laws',
     'Draft Law'      => 'Draft Law',
     'Lease law'      => 'Lease law',
 
