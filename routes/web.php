@@ -58,6 +58,7 @@ Route::middleware([
     Route::get('/news/upload/{cat_id}', [NewsController::class , 'uploadNews'])->name('news.upload');
     Route::post('/news/upload', [NewsController::class , 'store'])->name('news.store');
     Route::post('/news/update', [NewsController::class , 'update'])->name('news.update');
+    Route::get('/news/viewAll/{cat_id}', [NewsController::class , 'viewall'])->name('news.viewall');
 
     //Photo and videos
     Route::get('/gallery/get', [GalleryController::class , 'index'])->name('gallery.index');

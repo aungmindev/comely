@@ -89,9 +89,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function viewall($cat_id)
     {
-        //
+        return $cat_id;
     }
 
     /**

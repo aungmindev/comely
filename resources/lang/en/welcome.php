@@ -1,9 +1,10 @@
 <?php
 
 return [
-    'findmp'             => 'You can view the profile details using the name of the member of parliament and the region and state.',
+    'findmp'             => 'You can view the profile details using the name of the member of parliament and Constituency.',
+    'findmp_title'             => 'Find your MP',
     'mpname_placeholder' => "Type MP's name",
-    'mp_region'          => "Choose state",
+    'mp_region'          => "Choose Constituency",
     "Session's Calendar" => "Session's Calendar",
     "calendar_body"      => "Our government consists of different boards and departments that work every day to ensure the best conditions for our citizens and visitors to the city.",
         'Office_holidays'   =>'Office holidays',

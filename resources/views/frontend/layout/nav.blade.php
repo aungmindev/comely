@@ -44,6 +44,7 @@
                 <a href="#question" class="nav-link" id="nav_text">{{ __('menu.Laws') }}<i class="fa-solid fa-caret-down ml-2"></i></a>
                 <ul class="dropdown" style="z-index: 999999">
                 <li><a href="{{ route('app.view' , ['view' => 'frontend.law.draft']) }}" class="nav-link">{{ __('menu.Draft Law') }}</a></li>
+                <li><a href="{{ route('app.view' , ['view' => 'frontend.law.bill']) }}" class="nav-link">{{ __('menu.Bill law') }}</a></li>
                 <li><a href="{{ route('app.view' , ['view' => 'frontend.law.lease']) }}" class="nav-link">{{ __('menu.Lease law') }}</a></li>
                
                 </ul>
