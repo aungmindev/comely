@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\CalendarController;
 use App\Http\Controllers\Backend\CsvUploadController;
 use App\Http\Controllers\Backend\dashboardController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Frontend\SectionController;
 use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RolePermissionController;
@@ -23,7 +24,18 @@ use Illuminate\Support\Facades\Session;
 */
 
 Route::get('/', [WelcomeController::class , 'index']);
+// news
+Route::get('/news/viewAll/frontend/{cat_id}', [NewsController::class , 'viewall'])->name('news.frontend.viewall');
+//section
+Route::get('/session/{sessionType}', [SectionController::class , 'index'])->name('session.view');
 
+//Frontend
+Route::get('/app/detail/frontend/{model}/{view}/{id}', function ($model , $view , $id){
+    $class = "App\Models\\".$model;
+    $data  = $class::find($id);
+    return view($view , compact('data'));
+
+})->name('app.model.frontend.detail');
 
 
 Route::get('/locale/{language}' , function($language){
@@ -58,7 +70,6 @@ Route::middleware([
     Route::get('/news/upload/{cat_id}', [NewsController::class , 'uploadNews'])->name('news.upload');
     Route::post('/news/upload', [NewsController::class , 'store'])->name('news.store');
     Route::post('/news/update', [NewsController::class , 'update'])->name('news.update');
-    Route::get('/news/viewAll/{cat_id}', [NewsController::class , 'viewall'])->name('news.viewall');
 
     //Photo and videos
     Route::get('/gallery/get', [GalleryController::class , 'index'])->name('gallery.index');
@@ -98,6 +109,9 @@ Route::middleware([
     })->name('app.view');
 
 });
+
+
+
 
 Route::middleware([
     'auth:sanctum','adminRole',

@@ -93,51 +93,77 @@
             </div>
             
             <div id="news" class="bg-white mt-2 shadow-sm pb-5" >
+              
+              
+
+
               <div class="container">
+                
                <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.News') }}</h4>
                <p class="text-start mt-4 text-muted" id="homepage_sub_header">{{ __('welcome.news_body') }}</p>
 
                <div class="row mt-5">
                  <div class="col-lg-4" id="hotnews">
                    <div>
-                     <h4 class="mb-4">{{ __('welcome.Breaking News') }} <a href="{{ route('news.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
-                     @foreach ($news[1] as $breakingNews)
-                       @if(session()->get('locale') == 'mm')
-                        <a href="{{ route('app.model.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
-                          <div  class="card shadow-md border rounded-0 rounded-top p-2" >
-                            <div class=" card-body">
-                              <div class=" d-flex justify-content-center">
-                                <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
-                              </div>
-                              <div style="height : 12rem;" class="pl-5 mt-lg-2 mt-4">
-                                <h5 class="">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
-                                <span  class="mt-3 d-inline-block text-muted d-inline-block">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</span>
-                            </div>
-                            </div>
-                              <div class="card-footer">
-                                  <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
-                              </div>
-                          </div>
-                        </a>
-                       @else
-                        <a href="{{ route('app.model.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
-                          <div  class="card shadow-md border rounded-0 rounded-top p-2" style="cursor: pointer">
-                            <div class="row card-body">
-                              <div class=" d-flex justify-content-center">
-                                <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
-                              </div>
-                              <div style="height : 12rem" class=" pl-5 mt-lg-2 mt-4">
-                                <h5 class="">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
-                                <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 200) !!}...</span>
-                            </div>
-                            </div>
-                              <div class="card-footer">
-                                  <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
-                              </div>
-                          </div>
-                        </a>
-                       @endif
-                     @endforeach
+                     <h4 class="mb-4">{{ __('welcome.Breaking News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
+                     <div class="swiper">
+                      <!-- Additional required wrapper -->
+                      <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        @foreach ($breakingnews as $breakingNews)
+
+                        <div class="swiper-slide">
+                          @if(session()->get('locale') == 'mm')
+                           
+                             <div  class="card shadow-md border rounded-0 rounded-top p-2" >
+                               <div class=" card-body">
+                                 <div class=" d-flex justify-content-center">
+                                   <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
+                                 </div>
+                                 <div style="height : 15rem;" class="pl-5 mt-lg-2 mt-4">
+                                  <a href="{{ route('app.model.frontend.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
+                                   <h5 class="" id="news_title">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
+                                  </a>
+                                   <span  class="mt-3 d-inline-block text-muted d-inline-block">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</span>
+                               </div>
+                               </div>
+                                 <div class="card-footer">
+                                     <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
+                                 </div>
+                             </div>
+                          @else
+                             <div  class="card shadow-md border rounded-0 rounded-top p-2" style="cursor: pointer">
+                               <div class="row card-body">
+                                 <div class=" d-flex justify-content-center">
+                                   <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
+                                 </div>
+                                 <div style="height : 15rem" class=" pl-5 mt-lg-2 mt-4">
+                                  <a href="{{ route('app.model.frontend.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
+                        
+                                  <h5 class="" id="news_title">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
+                                  </a> 
+                                  <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 200) !!}...</span>
+                               </div>
+                               </div>
+                                 <div class="card-footer">
+                                     <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
+                                 </div>
+                             </div>
+                          @endif
+                        </div>
+                        @endforeach
+
+                        ...
+                      </div>
+                      <!-- If we need pagination -->
+                      <div class="swiper-pagination"></div>
+                    
+                      <!-- If we need navigation buttons -->
+                      <div class="swiper-button-prev"></div>
+                      <div class="swiper-button-next"></div>
+                    
+                    </div>
+                    
                      
                   
                      
@@ -145,89 +171,141 @@
                    
                  </div>
 
-                 <div class="col-lg-4 mt-lg-0 mt-3" id="hotnews">
-                   <h4 class="mb-4">{{ __('welcome.Hot News') }} <p class="d-inline btn btn-danger float-end btn-sm">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></p></h4>
-                   @foreach ($news[2] as $breakingNews)
-                   @if(session()->get('locale') == 'mm')
-                    <a href="{{ route('app.model.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
-                      <div  class="card shadow-md border rounded-0 rounded-top p-2">
-                        <div class=" card-body">
-                          <div class=" d-flex justify-content-center">
-                            <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
-                          </div>
-                          <div style="height : 12rem" class=" p-0 mt-lg-2 mt-4">
-                            <h5 class="">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
-                            <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</span>
-                        </div>
-                        </div>
-                          <div class="card-footer">
-                              <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
-                          </div>
-                      </div>
-                    </a>
-                   @else
-                    <a href="{{ route('app.model.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
-                      <div  class="card shadow-md border rounded-0 rounded-top p-2">
-                        <div class=" card-body">
-                          <div class=" d-flex justify-content-center">
-                            <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
-                          </div>
-                          <div style="height : 12rem" class="p-0 mt-lg-2 mt-4 pl-2">
-                            <h5 class="">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
-                            <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 200) !!} ...</span>
-                        </div>
-                        </div>
-                          <div class="card-footer">
-                              <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
-                          </div>
-                      </div>
-                    </a>
-                   @endif
-                 @endforeach
+                 <div class="col-lg-4" id="hotnews">
+                  <div>
+                    <h4 class="mb-4">{{ __('welcome.Breaking News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
+                    <div class="swiper">
+                     <!-- Additional required wrapper -->
+                     <div class="swiper-wrapper">
+                       <!-- Slides -->
+                       @foreach ($hotnews as $breakingNews)
 
-                     
-                 </div>
+                       <div class="swiper-slide">
+                         @if(session()->get('locale') == 'mm')
+                          
+                            <div  class="card shadow-md border rounded-0 rounded-top p-2" >
+                              <div class=" card-body">
+                                <div class=" d-flex justify-content-center">
+                                  <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
+                                </div>
+                                <div style="height : 15rem;" class="pl-5 mt-lg-2 mt-4">
+                                 <a href="{{ route('app.model.frontend.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
+                                  <h5 class="" id="news_title">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
+                                 </a>
+                                  <span  class="mt-3 d-inline-block text-muted d-inline-block">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</span>
+                              </div>
+                              </div>
+                                <div class="card-footer">
+                                    <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
+                                </div>
+                            </div>
+                         @else
+                            <div  class="card shadow-md border rounded-0 rounded-top p-2" style="cursor: pointer">
+                              <div class="row card-body">
+                                <div class=" d-flex justify-content-center">
+                                  <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
+                                </div>
+                                <div style="height : 15rem" class=" pl-5 mt-lg-2 mt-4">
+                                 <a href="{{ route('app.model.frontend.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
+                       
+                                 <h5 class="" id="news_title">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
+                                 </a> 
+                                 <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 200) !!}...</span>
+                              </div>
+                              </div>
+                                <div class="card-footer">
+                                    <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
+                                </div>
+                            </div>
+                         @endif
+                       </div>
+                       @endforeach
 
-                 <div class="col-lg-4 mt-lg-0 mt-3" id="hotnews">
-                   <h4 class="mb-4">{{ __('welcome.Latest News') }} <p class="d-inline btn btn-danger float-end btn-sm">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right  ml-2"></i></p></h4>
-                   @foreach ($news[3] as $breakingNews)
-                   @if(session()->get('locale') == 'mm')
-                    <a href="{{ route('app.model.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
-                      <div  class="card shadow-md border rounded-0 rounded-top p-2">
-                        <div class=" card-body">
-                          <div class="d-flex justify-content-center">
-                            <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
-                          </div>
-                          <div style="height : 12rem" class="p-0 mt-lg-2 mt-4">
-                            <h5 class="">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
-                            <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</span>
-                        </div>
-                        </div>
-                          <div class="card-footer">
-                              <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
-                          </div>
-                      </div>
-                    </a>
-                   @else
-                    <a href="{{ route('app.model.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
-                      <div  class="card shadow-md border rounded-0 rounded-top p-2">
-                        <div class=" card-body">
-                          <div class="d-flex justify-content-center">
-                            <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
-                          </div>
-                          <div style="height : 12rem" class="p-0 mt-lg-2 mt-4">
-                            <h5 class="">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
-                            <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 200) !!} ...</span>
-                        </div>
-                        </div>
-                          <div class="card-footer">
-                              <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
-                          </div>
-                      </div>
-                    </a>
-                   @endif
-                 @endforeach
-                 </div>
+                       ...
+                     </div>
+                     <!-- If we need pagination -->
+                     <div class="swiper-pagination"></div>
+                   
+                     <!-- If we need navigation buttons -->
+                     <div class="swiper-button-prev"></div>
+                     <div class="swiper-button-next"></div>
+                   
+                   </div>
+                   
+                    
+                 
+                    
+                  </div>
+                  
+                </div>
+
+                <div class="col-lg-4" id="hotnews">
+                  <div>
+                    <h4 class="mb-4">{{ __('welcome.Breaking News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
+                    <div class="swiper">
+                     <!-- Additional required wrapper -->
+                     <div class="swiper-wrapper">
+                       <!-- Slides -->
+                       @foreach ($latestnews as $breakingNews)
+
+                       <div class="swiper-slide">
+                         @if(session()->get('locale') == 'mm')
+                          
+                            <div  class="card shadow-md border rounded-0 rounded-top p-2" >
+                              <div class=" card-body">
+                                <div class=" d-flex justify-content-center">
+                                  <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
+                                </div>
+                                <div style="height : 15rem;" class="pl-5 mt-lg-2 mt-4">
+                                 <a href="{{ route('app.model.frontend.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
+                                  <h5 class="" id="news_title">{!! mb_substr($breakingNews->title  , 0 ,60)!!}</h5>
+                                 </a>
+                                  <span  class="mt-3 d-inline-block text-muted d-inline-block">{!! mb_substr(trim($breakingNews->body), 0 , 200) !!} ...</span>
+                              </div>
+                              </div>
+                                <div class="card-footer">
+                                    <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
+                                </div>
+                            </div>
+                         @else
+                            <div  class="card shadow-md border rounded-0 rounded-top p-2" style="cursor: pointer">
+                              <div class="row card-body">
+                                <div class=" d-flex justify-content-center">
+                                  <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/news/breaking/'.$breakingNews->image) }}">
+                                </div>
+                                <div style="height : 15rem" class=" pl-5 mt-lg-2 mt-4">
+                                 <a href="{{ route('app.model.frontend.detail' , ['model' => 'News' , 'view' => 'frontend.news.news_detail' , 'id' => $breakingNews->id]) }}">
+                       
+                                 <h5 class="" id="news_title">{!! mb_substr($breakingNews->title_en , 0 , 30) !!}</h5>
+                                 </a> 
+                                 <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($breakingNews->body_en) , 0 , 200) !!}...</span>
+                              </div>
+                              </div>
+                                <div class="card-footer">
+                                    <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
+                                </div>
+                            </div>
+                         @endif
+                       </div>
+                       @endforeach
+
+                       ...
+                     </div>
+                     <!-- If we need pagination -->
+                     <div class="swiper-pagination"></div>
+                   
+                     <!-- If we need navigation buttons -->
+                     <div class="swiper-button-prev"></div>
+                     <div class="swiper-button-next"></div>
+                   
+                   </div>
+                   
+                    
+                 
+                    
+                  </div>
+                  
+                </div>
 
                  
                  
@@ -286,7 +364,7 @@
                         @foreach ($photo_videos[0] as $photo_video)
                             <div class="col-lg-3">
                               <div class="box">
-                              <iframe width="400" height="200" src="{{ $photo_video->image_or_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              {{-- <iframe width="400" height="200" src="{{ $photo_video->image_or_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
                               {{-- <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image_or_video) }}"> --}}
                               <div class="box-content">
                                 {{-- <ul class="icon">
@@ -311,12 +389,34 @@
                  </div>
               </div>
            </div>
-
+           
               @include('frontend.layout.footer')
     </div>
 
-    <script>
-        
-    </script>
     
+    @section('script')
+      <script>
+        const swiper = new Swiper('.swiper', {
+                    // spaceBetween: 15,
+                    // slidesPerView: 1    , 
+                    // pagination: {
+                    // el: ".swiper-pagination",
+                    // clickable: true
+                    // },
+                    // speed: 1000,
+                    // loop: true,
+                    // autoplay: {
+                    // delay: 2500,
+                    // disableOnInteraction: false,
+                    // }
+
+                    navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                    },
+                 })
+      </script>
+    @endsection
 </x-frontend-layout>
+
+

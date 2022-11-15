@@ -154,7 +154,25 @@ font-size:22px;
 
 
 #iconColor{
-  color : #f8d753
+  color : #f8d753;
+  position: relative;
+  top: 5px;
+  
+}
+
+.swiper-button-next:after , .swiper-button-prev:after {
+  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
+  position: relative;
+  top: 2rem;
+  padding: 10px;
+  color: #000 !important;
+  fill: black !important;
+  stroke: black !important;
+  font-size: 10px !important;
+  font-weight: bolder !important;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #background{
@@ -168,6 +186,13 @@ font-size:22px;
 .nav-pills .nav-link.active{
   color: #000 !important;
     background-color: #f8d753 !important;
+}
+
+.outline_bar .nav-pills .nav-link.active{
+  color: #000 !important;
+    background-color: #ffffff !important;
+    border-bottom: 2px solid #F8D753;
+    border-radius: 0px;
 }
 
 #nav_text{
@@ -232,7 +257,9 @@ a:link {
   /* padding-right: 10px; */
 }
 
-
+#news_title{
+  line-height: 1.7;
+}
 
 
 

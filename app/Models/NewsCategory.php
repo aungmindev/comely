@@ -13,6 +13,6 @@ class NewsCategory extends Model
 
     public function getNewsByCategory()
     {
-        return $this->hasMany(News::class)->orderBy('created_at');
+        return $this->hasMany(News::class)->orderBy('created_at' , 'desc');
     }
 }

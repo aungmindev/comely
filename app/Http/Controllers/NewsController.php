@@ -91,7 +91,10 @@ class NewsController extends Controller
      */
     public function viewall($cat_id)
     {
-        return $cat_id;
+        $breakingnews   = NewsCategory::find(1)->getNewsByCategory()->paginate(10);
+        $hotnews        = NewsCategory::find(2)->getNewsByCategory()->paginate(10);
+        $latestnews     = NewsCategory::find(3)->getNewsByCategory()->paginate(10);
+        return view('frontend.news.view_all' , compact('cat_id' , 'breakingnews' , 'hotnews' , 'latestnews'));
     }
 
     /**

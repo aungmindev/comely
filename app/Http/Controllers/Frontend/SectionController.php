@@ -3,28 +3,18 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Gallery;
-use App\Models\News;
-use App\Models\NewsCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
-class WelcomeController extends Controller
+class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($cat_id)
     {
-        $breakingnews   = NewsCategory::find(1)->getNewsByCategory->take(2);
-        $hotnews        = NewsCategory::find(2)->getNewsByCategory->take(2);
-        $latestnews     = NewsCategory::find(3)->getNewsByCategory->take(2);
-        // $news = News::all()->groupBy('news_category_id')->take(2);
-        $photo_videos = Gallery::all()->groupBy('is_image');
-        // return session()->get('locale');
-        return view('welcome' , compact('photo_videos' , 'breakingnews' , 'hotnews' , 'latestnews'));
+        return view('frontend.section.session');
     }
 
     /**

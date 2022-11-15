@@ -12,6 +12,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
         <!-- Styles -->
         @livewireStyles
 
@@ -49,12 +54,17 @@
 
         @livewireScripts
         <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        @yield('script')
         <script>
              $(window).on('load', function () {
                 setTimeout(() => {
                     $('#loader').addClass('d-none')
                 $('.min-h-screen').css('display' , 'block')
                 }, 1000);
+
+
+                
             });
 
         </script>
