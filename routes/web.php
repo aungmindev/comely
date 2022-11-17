@@ -4,10 +4,16 @@ use App\Http\Controllers\Backend\CalendarController;
 use App\Http\Controllers\Backend\CsvUploadController;
 use App\Http\Controllers\Backend\dashboardController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\LawsController;
+use App\Http\Controllers\Backend\parliamentController;
+use App\Http\Controllers\Backend\PSessionController;
+use App\Http\Controllers\Backend\QandPController;
 use App\Http\Controllers\Frontend\SectionController;
 use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RolePermissionController;
+use App\Models\Psession;
+use App\Models\QandProposal;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -76,7 +82,28 @@ Route::middleware([
     Route::post('/gallery/store', [GalleryController::class , 'store'])->name('gallery.store');
     Route::post('/gallery/update', [GalleryController::class , 'update'])->name('gallery.update');
 
-   
+    //Parliament Times
+    Route::get('/parliament/times', [parliamentController::class , 'index'])->name('parliament.times.index');
+    Route::post('/parliament/times/create', [parliamentController::class , 'create'])->name('parliament.times.create');
+
+    //Session
+    Route::get('parliament/session/', [PSessionController::class , 'index'])->name('psession.get');
+    Route::post('parliament/session/data/get', [PSessionController::class , 'show'])->name('psession.show');
+    Route::post('parliament/session/data/store', [PSessionController::class , 'store'])->name('psession.store');
+    Route::post('parliament/session/data/update', [PSessionController::class , 'update'])->name('psession.update');
+
+    // Laws
+    Route::get('parliament/laws/', [LawsController::class , 'index'])->name('laws.get');
+    Route::post('parliament/laws/data/get', [LawsController::class , 'show'])->name('laws.show');
+    Route::post('parliament/laws/data/store', [LawsController::class , 'store'])->name('laws.store');
+    Route::post('parliament/laws/data/update', [LawsController::class , 'update'])->name('laws.update');
+
+    // Question and proposal
+    Route::get('parliament/qandp/', [QandPController::class , 'index'])->name('qandp.get');
+    Route::post('parliament/qandp/data/get', [QandPController::class , 'show'])->name('qandp.show');
+    Route::post('parliament/qandp/data/store', [QandPController::class , 'store'])->name('qandp.store');
+    Route::post('parliament/qandp/data/update', [QandPController::class , 'update'])->name('qandp.update');
+
 
 
     //Global route for entire project's delete and edit

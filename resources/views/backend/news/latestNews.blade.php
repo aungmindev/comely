@@ -36,16 +36,24 @@
                                             </div>
                                             <div class="col-md-9 pt-3">
                                                 <h5>{{ $latestNew->title }}</h5>
-                                                <p>{!! substr($latestNew->body , 0 , 1000) !!}</p>
+                                                <p>{!! mb_substr($latestNew->body , 0 , 1000) !!}</p>
                                             </div>
                                         </div>
                                     </div>
         
                                     <div class="card-footer">
-                                        <span style='font-family: Arial;font-size : 15px'>{{ $latestNew->created_at }}</span>
-                                        <a href="{{ route('app.model.delete' , ['model' => 'News' , 'id' => $latestNew->id]) }}" class="btn btn-danger text-white float-end btn-sm mr-2">Delete<i class="fa-solid fa-trash ml-1"></i></a>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                               <span style='font-family: Arial;font-size : 15px'>{{ $latestNew->created_at }}</span>
+
+                                            </div>
+                                            <div class="col-lg-9 d-flex justify-content-end mt-lg-0 mt-2">
+                                                <a href="{{ route('app.model.delete' , ['model' => 'News' , 'id' => $latestNew->id]) }}" class="btn btn-danger text-white float-end btn-sm mr-2">Delete<i class="fa-solid fa-trash ml-1"></i></a>
                                         <a href="{{ route('app.model.edit' , ['model' => 'News' ,'view' => 'backend.news.edit' , 'id' => $latestNew->id]) }}" class="text-white btn btn-warning float-end btn-sm mr-2">Edit<i class="fa-solid fa-edit ml-1"></i></a>
                                         <a href="{{ route('app.model.detail' , ['model' => 'News' ,'view' => 'backend.news.detail' , 'id' => $latestNew->id]) }}" class="text-white btn btn-primary float-end btn-sm mr-2 ">Detail<i class="fa-solid fa-arrow-right-long ml-1"></i></a>
+                                            </div>
+                                        </div>
+                                        
                                     
                                     </div>
                                 </div> 

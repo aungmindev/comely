@@ -29,7 +29,7 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('calendar.setting') }}">
-            <i class="fa-solid fa-calendar text-dark" style="font-size: 30px"></i>
+            <i class="fa-solid fa-calendar text-dark" style="font-size: 23px"></i>
             <span class="text-dark ml-2">Calendar</span></a>
     </li>
    
@@ -37,7 +37,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fa-solid fa-newspaper text-dark"></i>
+            <i class="fa-solid fa-newspaper text-dark" style="font-size: 23px"></i>
             <span class="text-dark ml-2">News</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="z-index:100">
@@ -52,16 +52,48 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('gallery.index') }}">
-            <i class="fa-solid fa-photo-film text-dark"></i>
+            <i class="fa-solid fa-photo-film text-dark" style="font-size: 23px"></i>
             <span class="text-dark ml-2">Photo / Videos</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('parliament.times.index') }}">
+            <i class="fa-solid fa-list text-dark" style="font-size: 23px"></i>
+            <span class="text-dark ml-2">Parliament Times</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('psession.get') }}">
+            <i class="fa-solid fa-handshake text-dark" style="font-size: 23px"></i>
+            <span class="text-dark ml-2">Session</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('laws.get') }}">
+            <i class="fa-solid fa-scale-balanced text-dark" style="font-size: 23px"></i>
+            <span class="text-dark ml-2">Laws</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('qandp.get') }}">
+            <i class="fa-solid fa-question text-dark" style="font-size: 23px"></i>
+            <span class="text-dark ml-2">Questions / Proposal</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('psession.get') }}">
+            <i class="fa-regular fa-file text-dark" style="font-size: 23px"></i>
+            <span class="text-dark ml-2">Reports</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('psession.get') }}">
+            <i class="fa-solid fa-layer-group text-dark" style="font-size: 23px"></i>
+            <span class="text-dark ml-2">Committees / Bodies</span></a>
+    </li>
+    
+   
     
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('calendar.setting') }}" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench text-dark"></i>
+            <i class="fas fa-fw fa-wrench text-dark" style="font-size: 23px"></i>
             <span class="text-dark">Utilities</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -74,7 +106,7 @@
                 <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -89,7 +121,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder text-dark"></i>
+            <i class="fas fa-fw fa-folder text-dark" style="font-size: 23px"></i>
             <span class="text-dark">Roles and Permissions</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">

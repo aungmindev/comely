@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
         <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/datatable.css') }}">
 
         <!-- Styles -->
         @livewireStyles
@@ -54,6 +55,7 @@
         <script src="{{ asset('js/tiny.js') }}" referrerpolicy="origin"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/datatable.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
         <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
@@ -68,5 +70,7 @@
               menubar: false,
               });
           </script>
+
+          @yield('script')
     </body>
 </html>
