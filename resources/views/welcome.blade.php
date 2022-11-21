@@ -73,30 +73,8 @@
                 </div>
             </div>
             
-           
-
-            <div id="news" class="bg-white mt-2 shadow-sm pb-5">
-               <div class="container">
-                <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.History') }}</h4>
-                  <div class="row">
-                      <div class="col-lg-4"></div>
-                      <div class="col-md-8">
-                        <p class="text-start mt-4 text-muted" id="homepage_sub_header"> ကျွန်ုပ်တို့၏အစိုးရတွင် ကျွန်ုပ်တို့၏နိုင်ငံသားများနှင့် မြို့၏ဧည့်သည်များအတွက် အကောင်းဆုံးအခြေအနေများကိုသေချာစေရန်နေ့စဉ်လုပ်ဆောင်ပေးသော မတူညီသောဘုတ်အဖွဲ့များနှင့် ဌာနများပါဝင်သည်။<br><br>(က) တိုင်းဒေသကြီး သို့မဟုတ် ပြည်နယ် တစ်ခုစီအတွက် ကိုယ်စားလှယ် ၁၂ ဦး ကျစီ တူညီစွာဖြင့် ရွေးကောက်တင်မြှောက်သည့် အမျိုးသားလွှတ်တော် ကိုယ်စားလှယ် ၁၆၈ဦး၊
-
-                          <br><br>(ခ) တိုင်းဒေသကြီး သို့မဟုတ် ပြည်နယ်တစ်ခုစီ အတွက် ကိုယ်စားလှယ် လေးဦးကျစီဖြင့် တပ်မတော်ကာကွယ်ရေးဦးစီးချုပ် က ဥပဒေနှင့်အညီ အမည်စာရင်း တင်သွင်းသည့် တပ်မတော်သား အမျိုးသားလွှတ်တော် ကိုယ်စားလှယ် ၅၆ ဦး
-                          
-                          အမျိုးသားလွှတ်တော်၏ သက်တမ်းသည် ပြည်သူ့လွှတ်တော်၏ သက်တမ်းနှင့် အညီဖြစ်သည်။</p>
-                          <div class="btn bnt-sm btn-danger">ဆက်လက်ဖတ်ရန် <i class="fas fa-arrow-right"></i></div>
-                      </div>
-                  </div>
-               </div>
-            </div>
-            
             <div id="news" class="bg-white mt-2 shadow-sm pb-5" >
               
-              
-
-
               <div class="container">
                 
                <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.News') }}</h4>
@@ -312,7 +290,89 @@
               </div>
               </div>
            </div>
-            <div id="news" class="mt-2 shadow-sm pb-5 pb-md-5">
+
+            <div id="news" class="bg-white mt-2 shadow-sm pb-5">
+               <div class="container">
+                  <div class="row">
+                    <div class="col-lg-6 border-right">
+                      <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.History') }}</h4>
+                       <div class="mt-5">
+                        <img src="{{ asset('images/ygnimg.jpg') }}" class="img-fluid"> 
+                         <p class="text-start mt-4 text-muted" id="homepage_sub_header"> ကျွန်ုပ်တို့၏အစိုးရတွင် ကျွန်ုပ်တို့၏နိုင်ငံသားများနှင့် မြို့၏ဧည့်သည်များအတွက် အကောင်းဆုံးအခြေအနေများကိုသေချာစေရန်နေ့စဉ်လုပ်ဆောင်ပေးသော မတူညီသောဘုတ်အဖွဲ့များနှင့် ဌာနများပါဝင်သည်။<br><br>(က) တိုင်းဒေသကြီး သို့မဟုတ် ပြည်နယ် တစ်ခုစီအတွက် ကိုယ်စားလှယ် ၁၂ ဦး ကျစီ တူညီစွာဖြင့် ရွေးကောက်တင်မြှောက်သည့် အမျိုးသားလွှတ်တော် ကိုယ်စားလှယ် ၁၆၈ဦး၊
+
+                        <br><br>
+                        <div class="btn bnt-sm btn-danger">ဆက်လက်ဖတ်ရန် <i class="fas fa-arrow-right"></i></div>
+                       </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('menu.About') }}</h4>
+                      <div class="mt-4">
+                        <div class="swiper">
+                          <!-- Additional required wrapper -->
+                          <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @foreach ($activities as $activity)
+    
+                            <div class="swiper-slide">
+                              @if(session()->get('locale') == 'mm')
+                               
+                                 <div  class="card  border-0 rounded-0 rounded-top p-2" >
+                                   <div class=" card-body">
+                                     <div class=" d-flex justify-content-center">
+                                       <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/reports/image/'.$activity->image) }}">
+                                     </div>
+                                     <div style="" class="pl-5 mt-lg-2 mt-4">
+                                      <a href="{{ route('app.model.frontend.detail' , ['model' => 'Activity' , 'view' => 'frontend.activites.detail' , 'id' => $activity->id]) }}">
+                                       <h5 class="" id="news_title">{!! mb_substr($activity->title  , 0 ,60)!!}</h5>
+                                      </a>
+                                       <span  class="mt-3 d-inline-block text-muted d-inline-block">{!! mb_substr(trim($activity->description), 0 , 200) !!} ...</span>
+                                   </div>
+                                   </div>
+                                     {{-- <div class="card-footer">
+                                         <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($breakingNews->created_at)) }}</span>
+                                     </div> --}}
+                                 </div>
+                              @else
+                                 <div  class="card shadow-md border rounded-0 rounded-top p-2" style="cursor: pointer">
+                                   <div class="row card-body">
+                                     <div class=" d-flex justify-content-center">
+                                       <img id="image" class=" img-thumbnail img-fluid border-0" src="{{ asset('uploads/reports/image/'.$activity->image) }}">
+                                     </div>
+                                     <div style="height : 15rem" class=" pl-5 mt-lg-2 mt-4">
+                                      <a href="{{ route('app.model.frontend.detail' , ['model' => 'Activity' , 'view' => 'frontend.activites.detail' , 'id' => $activity->id]) }}">
+                            
+                                      <h5 class="" id="news_title">{!! mb_substr($activity->title_en , 0 , 30) !!}</h5>
+                                      </a> 
+                                      <span class="mt-3 d-inline-block text-start text-muted">{!! mb_substr(trim($activity->description_en) , 0 , 200) !!}...</span>
+                                   </div>
+                                   </div>
+                                     <div class="card-footer">
+                                         <span style='font-family: Arial;font-size : 15px'>{{ date('M d , Y' , strtotime($activity->created_at)) }}</span>
+                                     </div>
+                                 </div>
+                              @endif
+                            </div>
+                            @endforeach
+    
+                            ...
+                          </div>
+                          <!-- If we need pagination -->
+                          <div class="swiper-pagination"></div>
+                        
+                          <!-- If we need navigation buttons -->
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                        
+                        </div>
+                      </div>
+                    </div>
+                      
+                  </div>
+               </div>
+            </div>
+            
+            
+            <div id="news" class="mt-2 shadow-sm bg-white pb-5 pb-md-5">
               <div class="container">
                <h4 class="text-start pt-lg-5 pt-5 font-weight-bold"  id="homepage_header">{{ __('welcome.Gallery') }}</h4>
                
@@ -364,7 +424,7 @@
                         @foreach ($photo_videos[0] as $photo_video)
                             <div class="col-lg-3">
                               <div class="box">
-                              <iframe width="400" height="200" src="{{ $photo_video->image_or_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                              {{-- <iframe width="400" height="200" src="{{ $photo_video->image_or_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
                               {{-- <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image_or_video) }}"> --}}
                               <div class="box-content">
                                 {{-- <ul class="icon">

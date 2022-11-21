@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Activity;
 use App\Models\Gallery;
 use App\Models\News;
 use App\Models\NewsCategory;
@@ -23,8 +24,9 @@ class WelcomeController extends Controller
         $latestnews     = NewsCategory::find(3)->getNewsByCategory->take(2);
         // $news = News::all()->groupBy('news_category_id')->take(2);
         $photo_videos = Gallery::all()->groupBy('is_image');
+        $activities = Activity::orderBy('created_at' , 'desc')->take(3)->get();
         // return session()->get('locale');
-        return view('welcome' , compact('photo_videos' , 'breakingnews' , 'hotnews' , 'latestnews'));
+        return view('welcome' , compact('photo_videos' , 'breakingnews' , 'hotnews' , 'latestnews' , 'activities'));
     }
 
     /**
