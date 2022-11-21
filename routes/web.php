@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\LawsController;
 use App\Http\Controllers\Backend\parliamentController;
 use App\Http\Controllers\Backend\PSessionController;
 use App\Http\Controllers\Backend\QandPController;
+use App\Http\Controllers\Frontend\activityController as FrontendActivityController;
 use App\Http\Controllers\Frontend\LawController;
 use App\Http\Controllers\Frontend\QandproposalController;
 use App\Http\Controllers\Frontend\ReportController as FrontendReportController;
@@ -56,6 +57,9 @@ Route::post('/qandp/get/bypid', [QandproposalController::class , 'getByPid'])->n
 Route::get('/report/show/{pTime?}/{sessionTime?}', [FrontendReportController::class , 'index'])->name('report.view');
 Route::get('/report/detail/{id}', [FrontendReportController::class , 'show'])->name('report.frontend.detail');
 Route::post('/report/get/bypid', [FrontendReportController::class , 'getByPid'])->name('report.get.pid');
+
+// Activity
+Route::get('/activity/show', [FrontendActivityController::class , 'index'])->name('activity.frontend.index');
 
 // calendar
 Route::post('/calendar/setting/get', [CalendarController::class , 'getLists'])->name('calendar.setting.get');

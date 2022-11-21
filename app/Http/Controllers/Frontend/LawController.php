@@ -61,7 +61,7 @@ class LawController extends Controller
         }elseif($request->lawType== 2){
             $lawType = 'bill';
         }else{
-            $lawType = 'law';
+            $lawType = 'lease';
         }
         $data1 = Law::with('parliament_time'  , 'session_times')->where(['parliament_times_id' => 1 , 'law_type' => $lawType])->get()->unique('session_time_id');
         $data2 = Law::with('parliament_time'  , 'session_times')->where(['parliament_times_id' => 2 , 'law_type' => $lawType])->get()->unique('session_time_id');

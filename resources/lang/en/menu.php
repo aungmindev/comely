@@ -21,6 +21,6 @@ return [
     'Committee2'      => 'Committee2',
 
     'History'          => 'Reports',
-    'About'            => 'Meeting minutes',
+    'About'            => 'Activites',
 
 ];

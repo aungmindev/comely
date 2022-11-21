@@ -22,8 +22,9 @@
                 
             <div class="row">
                 <div class="col-lg-8" >
-                    @if(session()->get('locale') == 'mm')
                             @foreach ($qandps as $qandp)
+                     @if(session()->get('locale') == 'mm')
+
                             <div class="card p-0 mt-2">
                               <div class="d-flex">
                                 {{-- <div class="col-3  rounded-start d-flex justify-content-center  align-items-center p-2" id="background">
@@ -50,6 +51,35 @@
                                   </div>
                               </div>
                           </div>
+
+                          @else
+                          <div class="card p-0 mt-2">
+                            <div class="d-flex">
+                              {{-- <div class="col-3  rounded-start d-flex justify-content-center  align-items-center p-2" id="background">
+                                <div class="row card-body">
+                                    <div class="col-md-12">
+                                      <h5 class=" text-center">{{ date('d' , strtotime($qandp->date)) }}</h5>
+                                    </div>
+                                    <div class="col-md-12">
+                                      <h6 class=" text-center">{{ date('F' , strtotime($qandp->date)) }}</h6>
+                                    </div>
+                                  </div>  
+                            
+                               </div> --}}
+                                <div class="col-lg-12">
+                                    <div class="card-body border-0">
+                                        <a href="{{ route('qandp.frontend.detail' , ['id' => $qandp->id]) }}"><h6 class="font-weight-bold title_design">{{ $qandp->title_en }}</h6></a>
+                                    </div>
+                                    <div class="card-footer no-gutters ">
+                                       {{ $qandp->qnadp_type }} @if ($qandp->isstar == 1)
+                                       <span class="text-danger">*</span>
+                                       @endif
+                                        <span class="float-right text-muted pt-3 pt-lg-0">{{$qandp->session_times->name_en }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          @endif
                             @endforeach
                             
                             <div>
@@ -63,36 +93,7 @@
 
                           </div>
                             
-                    @else
-                        
-                    @foreach ($qandps as $qandp)
-                    <div class="card p-0 mt-2">
-                      <div class="d-flex">
-                        <div class="col-3  rounded-start d-flex justify-content-center  align-items-center p-2" id="background">
-                          <div class="row card-body">
-                              <div class="col-md-12">
-                                <h5 class=" text-center">{{ date('d' , strtotime($qandp->date)) }}</h5>
-                              </div>
-                              <div class="col-md-12">
-                                <h6 class=" text-center">{{ date('F' , strtotime($qandp->date)) }}</h6>
-                              </div>
-                            </div>  
-                      
-                         </div>
-                          <div class="col-lg-9">
-                              <div class="card-body border-0">
-                                  <a href="{{ route('session.frontend.detail' , ['id' => $qandp->id]) }}"><h6 class="font-weight-bold title_design">{{ $qandp->title_en }}</h6></a>
-                              </div>
-                              <div class="card-footer no-gutters ">
-                                  {{ date('d F , Y' , strtotime($qandp->date)) }}
-                                  <p class="float-right text-muted pt-3 pt-lg-0">{{$qandp->session_times->name_en }}</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                    @endforeach
-                       
-                    @endif
+                   
 
                     
                 </div>

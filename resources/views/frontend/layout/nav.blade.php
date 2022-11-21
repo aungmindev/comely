@@ -62,7 +62,7 @@
               
               
               <li><a href="{{ route('report.view') }}" class="nav-link" id="nav_text">{{ __('menu.History') }}</a></li>
-              <li><a href="{{ route('app.view' , ['view' => 'frontend.about.about']) }}" class="nav-link" id="nav_text">{{ __('menu.About') }}</a></li>
+              <li><a href="{{ route('activity.frontend.index') }}" class="nav-link" id="nav_text">{{ __('menu.About') }}</a></li>
               {{-- <li><a href="#contact-section" class="nav-link">Contact</a></li>
               <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
               <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
