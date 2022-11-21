@@ -54,7 +54,7 @@
 
         @livewireScripts
         <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <script src="{{ asset('js/swiper.min.js') }}"></script>
         <script src="{{ asset('js/axios.js') }}"></script>
 
         @yield('script')

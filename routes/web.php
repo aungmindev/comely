@@ -39,6 +39,10 @@ Route::get('/session/show/{sessionType}/{pTime?}/{sessionTime?}/{sessiondataType
 Route::get('/session/detail/{id}', [SectionController::class , 'show'])->name('session.frontend.detail');
 Route::post('/session/get/bypid', [SectionController::class , 'getByPid'])->name('session.get.pid');
 
+// calendar
+Route::post('/calendar/setting/get', [CalendarController::class , 'getLists'])->name('calendar.setting.get');
+
+
 //Frontend
 Route::get('/app/detail/frontend/{model}/{view}/{id}', function ($model , $view , $id){
     $class = "App\Models\\".$model;
@@ -71,7 +75,6 @@ Route::middleware([
     //calendar
     Route::get('/calendar/setting', [CalendarController::class , 'index'])->name('calendar.setting');
     Route::post('/calendar/setting/store', [CalendarController::class , 'store'])->name('calendar.setting.store');
-    Route::post('/calendar/setting/get', [CalendarController::class , 'getLists'])->name('calendar.setting.get');
 
     //News
     Route::get('/news/breaking', [NewsController::class , 'breakingNews'])->name('news.breaking');
