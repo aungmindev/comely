@@ -2,6 +2,8 @@
 
 return [
     'Session'           => 'အစည်းအဝေး',
+    'SessionType1'           => 'အစည်းအဝေးအစီအစဉ်များ',
+    'SessionType2'           => 'အစည်းအဝေးမှတ်တမ်းများ',
     'Home'           => 'ပင်မစာမျက်နှာ',
     'Regular Session'   => 'ပုံမှန်အစည်းအဝေး',
     'Special Session'   => 'အထူးအစည်းအဝေး',

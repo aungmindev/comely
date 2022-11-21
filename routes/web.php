@@ -10,6 +10,9 @@ use App\Http\Controllers\Backend\LawsController;
 use App\Http\Controllers\Backend\parliamentController;
 use App\Http\Controllers\Backend\PSessionController;
 use App\Http\Controllers\Backend\QandPController;
+use App\Http\Controllers\Frontend\LawController;
+use App\Http\Controllers\Frontend\QandproposalController;
+use App\Http\Controllers\Frontend\ReportController as FrontendReportController;
 use App\Http\Controllers\Frontend\SectionController;
 use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\NewsController;
@@ -38,6 +41,21 @@ Route::get('/news/viewAll/frontend/{cat_id}', [NewsController::class , 'viewall'
 Route::get('/session/show/{sessionType}/{pTime?}/{sessionTime?}/{sessiondataType?}', [SectionController::class , 'index'])->name('session.view');
 Route::get('/session/detail/{id}', [SectionController::class , 'show'])->name('session.frontend.detail');
 Route::post('/session/get/bypid', [SectionController::class , 'getByPid'])->name('session.get.pid');
+
+//Law
+Route::get('/law/show/{lawType}/{pTime?}/{sessionTime?}', [LawController::class , 'index'])->name('law.view');
+Route::get('/law/detail/{id}', [LawController::class , 'show'])->name('law.frontend.detail');
+Route::post('/law/get/bypid', [LawController::class , 'getByPid'])->name('law.get.pid');
+
+//Question and Proposal
+Route::get('/qandp/show/{isstar}/{pTime?}/{sessionTime?}/{qandpType?}', [QandproposalController::class , 'index'])->name('qandp.view');
+Route::get('/qandp/detail/{id}', [QandproposalController::class , 'show'])->name('qandp.frontend.detail');
+Route::post('/qandp/get/bypid', [QandproposalController::class , 'getByPid'])->name('qandp.get.pid');
+
+//Report
+Route::get('/report/show/{pTime?}/{sessionTime?}', [FrontendReportController::class , 'index'])->name('report.view');
+Route::get('/report/detail/{id}', [FrontendReportController::class , 'show'])->name('report.frontend.detail');
+Route::post('/report/get/bypid', [FrontendReportController::class , 'getByPid'])->name('report.get.pid');
 
 // calendar
 Route::post('/calendar/setting/get', [CalendarController::class , 'getLists'])->name('calendar.setting.get');

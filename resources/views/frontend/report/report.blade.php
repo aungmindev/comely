@@ -5,8 +5,8 @@
 
     <div id="app" class="">
         <div class="outline_bar container mt-lg-2 mb-3">
-          <h4 class="mt-4 mb-4 text-center border-bottom p-3">{{ __('all.siteName') }} {{ __('menu.Session') }}</h4>
-          <parliament-session :session-type="{{ $sessionType }}"></parliament-session>
+          <h4 class="mt-4 mb-4 text-center border-bottom p-3">{{ __('all.siteName') }} {{ __('menu.History') }}</h4>
+          <report-view></report-view>
           <ul class=" nav nav-pills nav-justified rounded-0 mb-3 mt-2" id="pills-tab" role="tablist">
             <li class="nav-item " role="presentation">
               <button data-bs-toggle="offcanvas" data-bs-target="#firsttime" class="nav-link  p-3 {{ $ptimes == 1 ? 'active' : '' }} rounded-0 d-inline-block" id="pills-home-tab"  type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('all.firsttime') }}<i class="d-none d-lg-block fa-solid fa-caret-down float-end"></i> </button>
@@ -23,27 +23,26 @@
             <div class="row">
                 <div class="col-lg-8" >
                     @if(session()->get('locale') == 'mm')
-                            @foreach ($thirdTimeSessions as $thirdTimeSession)
+                            @foreach ($reports as $report)
                             <div class="card p-0 mt-2">
                               <div class="d-flex">
-                                <div class="col-3  rounded-start d-flex justify-content-center  align-items-center p-2" id="background">
+                                {{-- <div class="col-3  rounded-start d-flex justify-content-center  align-items-center p-2" id="background">
                                   <div class="row card-body">
                                       <div class="col-md-12">
-                                        <h5 class=" text-center">{{ date('d' , strtotime($thirdTimeSession->date)) }}</h5>
+                                        <h5 class=" text-center">{{ date('d' , strtotime($report->date)) }}</h5>
                                       </div>
                                       <div class="col-md-12">
-                                        <h6 class=" text-center">{{ date('F' , strtotime($thirdTimeSession->date)) }}</h6>
+                                        <h6 class=" text-center">{{ date('F' , strtotime($report->date)) }}</h6>
                                       </div>
                                     </div>  
                               
-                                 </div>
-                                  <div class="col-lg-9">
+                                 </div> --}}
+                                  <div class="col-lg-12">
                                       <div class="card-body border-0">
-                                          <a href="{{ route('session.frontend.detail' , ['id' => $thirdTimeSession->id]) }}"><h6 class="font-weight-bold title_design">{{ $thirdTimeSession->title }}</h6></a>
+                                          <a href="{{ route('report.frontend.detail' , ['id' => $report->id]) }}"><h6 class="font-weight-bold title_design">{{ $report->title }}</h6></a>
                                       </div>
                                       <div class="card-footer no-gutters ">
-                                          {{ date('d F , Y' , strtotime($thirdTimeSession->date)) }}
-                                          <p class="float-right text-muted pt-3 pt-lg-0">{{$thirdTimeSession->session_times->name }}</p>
+                                          <span class=" text-muted pt-3 pt-lg-0">{{$report->session_times->name }}</span>
                                       </div>
                                   </div>
                               </div>
@@ -51,39 +50,39 @@
                             @endforeach
                             
                             <div>
-                                @if (count($thirdTimeSessions) <= 0)
+                                @if (count($reports) <= 0)
                                   <p class="text-danger text-center">No Data Available</p>
                                 @endif
                             </div>
 
                             <div class="mt-2 p-2">
-                              {{ $thirdTimeSessions->links() }}
+                              {{ $reports->links() }}
 
                           </div>
                             
                     @else
                         
-                    @foreach ($thirdTimeSessions as $thirdTimeSession)
+                    @foreach ($reports as $report)
                     <div class="card p-0 mt-2">
                       <div class="d-flex">
                         <div class="col-3  rounded-start d-flex justify-content-center  align-items-center p-2" id="background">
                           <div class="row card-body">
                               <div class="col-md-12">
-                                <h5 class=" text-center">{{ date('d' , strtotime($thirdTimeSession->date)) }}</h5>
+                                <h5 class=" text-center">{{ date('d' , strtotime($report->date)) }}</h5>
                               </div>
                               <div class="col-md-12">
-                                <h6 class=" text-center">{{ date('F' , strtotime($thirdTimeSession->date)) }}</h6>
+                                <h6 class=" text-center">{{ date('F' , strtotime($report->date)) }}</h6>
                               </div>
                             </div>  
                       
                          </div>
                           <div class="col-lg-9">
                               <div class="card-body border-0">
-                                  <a href="{{ route('session.frontend.detail' , ['id' => $thirdTimeSession->id]) }}"><h6 class="font-weight-bold title_design">{{ $thirdTimeSession->title_en }}</h6></a>
+                                  <a href="{{ route('session.frontend.detail' , ['id' => $report->id]) }}"><h6 class="font-weight-bold title_design">{{ $report->title_en }}</h6></a>
                               </div>
                               <div class="card-footer no-gutters ">
-                                  {{ date('d F , Y' , strtotime($thirdTimeSession->date)) }}
-                                  <p class="float-right text-muted pt-3 pt-lg-0">{{$thirdTimeSession->session_times->name_en }}</p>
+                                  {{ date('d F , Y' , strtotime($report->date)) }}
+                                  <p class="float-right text-muted pt-3 pt-lg-0">{{$report->session_times->name_en }}</p>
                               </div>
                           </div>
                       </div>

@@ -8,6 +8,9 @@ import dashboardView from './components/dashboardView.vue'
 import calendarSetting from './components/calendarSetting.vue'
 import calendarView from './components/calendarView.vue'
 import parliamentSession from './components/parliamentSession.vue'
+import lawView from './components/lawView.vue'
+import qandpView from './components/qandpView.vue'
+import reportView from './components/reportView.vue'
 import Swal from 'sweetalert2'
 import Toast from 'sweetalert2'
 import VCalendar from 'v-calendar';
@@ -23,6 +26,9 @@ const app = createApp({
         'calendar-setting'           : calendarSetting,
         'calendar-view'           : calendarView,
         'parliament-session'           : parliamentSession,
+        'law-view'           : lawView,
+        'qandp-view'           : qandpView,
+        'report-view'           : reportView,
     }
 })
 app.use(VCalendar)

@@ -111,6 +111,15 @@ class LawsController extends Controller
         ->editColumn('created_at' , function($data){
             return date('M Y , d' , strtotime($data->created_at));
         })
+        ->editColumn('law_type' , function($data){
+            if($data->law_type == 'draft'){
+                return 'ဥပဒေမူကြမ်း';
+            }elseif($data->law_type == 'bill'){
+                return 'ဥပဒေကြမ်း';
+            }else{
+                return 'ဥပဒေ';
+            }
+        })
         ->editColumn('session_time_id' , function($data){
             return $data->session_times->name;
         })

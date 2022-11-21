@@ -32,8 +32,8 @@
               <li class="has-children">
                     <a href="#question" class="nav-link" id="nav_text">{{ __('menu.Question') }} <i class="fa-solid fa-caret-down ml-2"></i></a>
                     <ul class="dropdown" style="z-index: 999999">
-                    <li><a href="#team-section" class="nav-link">{{ __('menu.Show Star') }}</a></li>
-                    <li><a href="#pricing-section" class="nav-link">{{ __('menu.No Star') }}</a></li>
+                    <li><a href="{{ route('qandp.view' , ['isstar' => 1]) }}" class="nav-link">{{ __('menu.Show Star') }}</a></li>
+                    <li><a href="{{ route('qandp.view' , ['isstar' => 0]) }}" class="nav-link">{{ __('menu.No Star') }}</a></li>
                     
                     </ul>
               </li>
@@ -43,9 +43,9 @@
             <li class="has-children">
                 <a href="#question" class="nav-link" id="nav_text">{{ __('menu.Laws') }}<i class="fa-solid fa-caret-down ml-2"></i></a>
                 <ul class="dropdown" style="z-index: 999999">
-                <li><a href="{{ route('app.view' , ['view' => 'frontend.law.draft']) }}" class="nav-link">{{ __('menu.Draft Law') }}</a></li>
-                <li><a href="{{ route('app.view' , ['view' => 'frontend.law.bill']) }}" class="nav-link">{{ __('menu.Bill law') }}</a></li>
-                <li><a href="{{ route('app.view' , ['view' => 'frontend.law.lease']) }}" class="nav-link">{{ __('menu.Lease law') }}</a></li>
+                <li><a href="{{ route('law.view' , ['lawType' => 'draft']) }}" class="nav-link">{{ __('menu.Draft Law') }}</a></li>
+                <li><a href="{{ route('law.view' , ['lawType' => 'bill']) }}" class="nav-link">{{ __('menu.Bill law') }}</a></li>
+                <li><a href="{{ route('law.view' , ['lawType' => 'lease']) }}" class="nav-link">{{ __('menu.Lease law') }}</a></li>
                
                 </ul>
           </li>
@@ -61,7 +61,7 @@
 
               
               
-              <li><a href="{{ route('app.view' , ['view' => 'frontend.history.history']) }}" class="nav-link" id="nav_text">{{ __('menu.History') }}</a></li>
+              <li><a href="{{ route('report.view') }}" class="nav-link" id="nav_text">{{ __('menu.History') }}</a></li>
               <li><a href="{{ route('app.view' , ['view' => 'frontend.about.about']) }}" class="nav-link" id="nav_text">{{ __('menu.About') }}</a></li>
               {{-- <li><a href="#contact-section" class="nav-link">Contact</a></li>
               <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>

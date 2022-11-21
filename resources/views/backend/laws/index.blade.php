@@ -63,9 +63,9 @@
                                     <div class="mb-3">
                                         <label for="law_type" class="form-label"> Law Type <span class="text-danger">*</span></label>
                                         <select class="form-control" name="law_type" id="" required>
-                                            <option id="ဥပဒေမူကြမ်း">ဥပဒေမူကြမ်း</option>
-                                            <option id="ဥပဒေကြမ်း">ဥပဒေကြမ်း</option>
-                                            <option id="ဥပဒေ">ဥပဒေ</option>
+                                            <option value="draft">ဥပဒေမူကြမ်း</option>
+                                            <option value="bill">ဥပဒေကြမ်း</option>
+                                            <option value="lease">ဥပဒေ</option>
                                         </select>
                                         {{-- <input type="hidden"  class="form-control"  id="user_id" placeholder="Role Name" name="user_id"> --}}
                                       </div>
@@ -202,9 +202,9 @@
                                         <input type="hidden" name="old_pdf" id="old_pdf">
                                         <input type="hidden" name="update_id" id="update_id">
                                         <select class="form-control" name="law_type" id="law_type" required>
-                                            <option id="ဥပဒေမူကြမ်း">ဥပဒေမူကြမ်း</option>
-                                            <option id="ဥပဒေကြမ်း">ဥပဒေကြမ်း</option>
-                                            <option id="ဥပဒေ">ဥပဒေ</option>
+                                            <option id="draft" value="draft">ဥပဒေမူကြမ်း</option>
+                                            <option id="bill" value="bill">ဥပဒေကြမ်း</option>
+                                            <option id="law" value="law">ဥပဒေ</option>
                                         </select>
                                         {{-- <input type="hidden"  class="form-control"  id="user_id" placeholder="Role Name" name="user_id"> --}}
                                       </div>
