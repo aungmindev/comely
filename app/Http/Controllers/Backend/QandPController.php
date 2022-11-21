@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Parliament;
 use App\Models\QandProposal;
+use App\Models\Sessiontime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
@@ -19,7 +20,8 @@ class QandPController extends Controller
     public function index()
     {
         $ptimes = Parliament::all();
-        return view('backend.question_and_proposal.index' , compact('ptimes'));
+        $psessiontimes = Sessiontime::all();
+        return view('backend.question_and_proposal.index' , compact('ptimes' , 'psessiontimes'));
     }
 
     /**
@@ -74,8 +76,7 @@ class QandPController extends Controller
             'parliament_times_id' => $request->ptimes,
             'title' => $request->qandp_title,
             'title_en' => $request->qandp_title_en,
-            'session_time' => $request->session_time,
-            'session_time_en' => $request->session_time_en,
+            'session_time_id' => $request->session_time,
             'pdf' => $pdf_name,
             'image' => $image_name,
             'summary' => $request->summary,
@@ -93,7 +94,7 @@ class QandPController extends Controller
      */
     public function show()
     {
-        $data = QandProposal::with('parliament_time')->orderBy('created_at' , 'desc')->get();
+        $data = QandProposal::with('parliament_time', 'session_times')->orderBy('created_at' , 'desc')->get();
 
         return DataTables::of($data)
         ->editColumn('parliament_times_id' , function($data){
@@ -105,6 +106,9 @@ class QandPController extends Controller
             }else{
                 return 'ကြယ်မပြ';
             }
+        })
+        ->editColumn('session_time_id' , function($data){
+            return $data->session_times->name;
         })
         ->editColumn('created_at' , function($data){
             return date('M Y , d' , strtotime($data->created_at));
@@ -124,7 +128,7 @@ class QandPController extends Controller
             return ' 
                 <div class="row">
                     <div class="col-lg-6">
-                     <span onclick="edit(`'.$data->id.'`,`'.$data->qnadp_type.'`,`'.$data->parliament_time->name.'`,`'.$data->session_time.'`,`'.$data->session_time_en.'`,`'.$data->title.'`,`'.$data->title_en.'`,`'.$data->isstar.'`,`'.$data->summary.'`,`'.$data->summary_en.'`,`'.$data->pdf.'`,`'.$data->image.'`)" class="btn btn-sm btn-warning d-inline"><i class="fas fa-edit"></i> </span>
+                     <span onclick="edit(`'.$data->id.'`,`'.$data->qnadp_type.'`,`'.$data->parliament_time->name.'`,`'.$data->session_times->name.'`,`'.$data->title.'`,`'.$data->title_en.'`,`'.$data->isstar.'`,`'.$data->summary.'`,`'.$data->summary_en.'`,`'.$data->pdf.'`,`'.$data->image.'`)" class="btn btn-sm btn-warning d-inline"><i class="fas fa-edit"></i> </span>
                     </div>
                     <div class="col-lg-6">
                      <span onclick="edit(`'.$data->id.'`,`'.$data->session_type.'`,`'.$data->session_data_type.'`,`'.$data->parliament_times_id.'`,`'.$data->session_time.'`,`'.$data->session_time_en.'`,`'.$data->title.'`,`'.$data->title_en.'`,`'.$data->date.'`,`'.$data->summary.'`,`'.$data->summary_en.'`,`'.$data->pdf.'`,`'.$data->image.'`)" class="btn btn-sm btn-danger d-inline"><i class="fas fa-trash"></i> </span>
@@ -193,8 +197,7 @@ class QandPController extends Controller
             'parliament_times_id' => $request->ptimes,
             'title' => $request->qandp_title,
             'title_en' => $request->qandp_title,
-            'session_time' => $request->session_time,
-            'session_time_en' => $request->session_time_en,
+            'session_time_id' => $request->session_time,
             'pdf' => $pdf_name,
             'image' => $image_name,
             'summary' => $request->summary,

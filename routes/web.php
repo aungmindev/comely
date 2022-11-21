@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\ActivityController;
 use App\Http\Controllers\Backend\CalendarController;
 use App\Http\Controllers\Backend\CsvUploadController;
 use App\Http\Controllers\Backend\dashboardController;
@@ -33,7 +35,9 @@ Route::get('/', [WelcomeController::class , 'index']);
 // news
 Route::get('/news/viewAll/frontend/{cat_id}', [NewsController::class , 'viewall'])->name('news.frontend.viewall');
 //section
-Route::get('/session/{sessionType}', [SectionController::class , 'index'])->name('session.view');
+Route::get('/session/show/{sessionType}/{pTime?}/{sessionTime?}/{sessiondataType?}', [SectionController::class , 'index'])->name('session.view');
+Route::get('/session/detail/{id}', [SectionController::class , 'show'])->name('session.frontend.detail');
+Route::post('/session/get/bypid', [SectionController::class , 'getByPid'])->name('session.get.pid');
 
 //Frontend
 Route::get('/app/detail/frontend/{model}/{view}/{id}', function ($model , $view , $id){
@@ -86,6 +90,9 @@ Route::middleware([
     Route::get('/parliament/times', [parliamentController::class , 'index'])->name('parliament.times.index');
     Route::post('/parliament/times/create', [parliamentController::class , 'create'])->name('parliament.times.create');
 
+    //Parliament Session Times
+    Route::post('/parliament/session/times/create', [parliamentController::class , 'session_create'])->name('parliament.session.times.create');
+
     //Session
     Route::get('parliament/session/', [PSessionController::class , 'index'])->name('psession.get');
     Route::post('parliament/session/data/get', [PSessionController::class , 'show'])->name('psession.show');
@@ -104,7 +111,17 @@ Route::middleware([
     Route::post('parliament/qandp/data/store', [QandPController::class , 'store'])->name('qandp.store');
     Route::post('parliament/qandp/data/update', [QandPController::class , 'update'])->name('qandp.update');
 
+    // Reports
+    Route::get('parliament/report/', [ReportController::class , 'index'])->name('report.get');
+    Route::post('parliament/report/data/get', [ReportController::class , 'show'])->name('report.show');
+    Route::post('parliament/report/data/store', [ReportController::class , 'store'])->name('report.store');
+    Route::post('parliament/report/data/update', [ReportController::class , 'update'])->name('report.update');
 
+    // Activities
+    Route::get('parliament/activities/', [ActivityController::class , 'index'])->name('activity.index');
+    Route::post('parliament/activity/data/get', [ActivityController::class , 'show'])->name('activity.show');
+    Route::post('parliament/activity/data/store', [ActivityController::class , 'store'])->name('activity.store');
+    Route::post('parliament/activity/data/update', [ActivityController::class , 'update'])->name('activity.update');
 
     //Global route for entire project's delete and edit
     Route::get('/app/delete/{model}/{id}/{default?}', function ($model , $id , $default = null){

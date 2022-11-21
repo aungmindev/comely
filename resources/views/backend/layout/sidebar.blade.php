@@ -14,7 +14,7 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt text-dark fa-2x"></i>
+            <i class="fas fa-fw fa-tachometer-alt text-dark fa-2x" style="font-size: 23px"></i>
             <span class="text-dark">Dashboard</span></a>
     </li>
 
@@ -76,16 +76,32 @@
             <span class="text-dark ml-2">Questions / Proposal</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('psession.get') }}">
+        <a class="nav-link" href="{{ route('report.get') }}">
             <i class="fa-regular fa-file text-dark" style="font-size: 23px"></i>
             <span class="text-dark ml-2">Reports</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('psession.get') }}">
-            <i class="fa-solid fa-layer-group text-dark" style="font-size: 23px"></i>
-            <span class="text-dark ml-2">Committees / Bodies</span></a>
+        <a class="nav-link" href="{{ route('activity.index') }}">
+            <i class="fa-solid fa-book-bookmark text-dark" style="font-size: 23px"></i>
+            <span class="text-dark ml-2">Activities</span></a>
     </li>
     
+    
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#committe"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fa-solid fa-layer-group text-dark" style="font-size: 23px"></i>
+            <span class="text-dark ml-2">Committees / Bodies</span>
+        </a>
+        <div id="committe" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="z-index:100">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">News Components:</h6>
+                <a class="collapse-item" href="{{ route('news.breaking') }}">Main Category</a>
+                <a class="collapse-item" href="{{ route('news.hot') }}">Sub Category</a>
+                <a class="collapse-item" href="{{ route('news.latest') }}">Latest News</a>
+            </div>
+        </div>
+    </li>
    
     
 

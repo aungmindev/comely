@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Parliament;
+use App\Models\Sessiontime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,8 @@ class parliamentController extends Controller
     public function index()
     {
         $ptimes = Parliament::all();
-        return view('backend.parliament.index' , compact('ptimes'));
+        $psession_times = Sessiontime::paginate(5);
+        return view('backend.parliament.index' , compact('ptimes' , 'psession_times'));
     }
 
     /**
@@ -57,9 +59,30 @@ class parliamentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function session_create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all() , [
+            'Name_myanmar' => 'required|',
+            'Name_english' => 'required|',
+        ]);
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withModal('open');
+        }
+        if($request->ptimes_id == null){
+            Sessiontime::firstOrCreate(
+                ['name' => $request->Name_myanmar , 'name_en' => $request->Name_english ],
+                ['name' => $request->Name_myanmar , 'name_en' => $request->Name_english ],
+            );
+            return redirect()->route('parliament.times.index')->withSuccess('Successfully added.'); 
+
+        }else{
+            Sessiontime::where('id' , $request->ptimes_id)->update([
+                'name' => $request->Name_myanmar,
+                'name_en' => $request->Name_english,
+            ]);
+            return redirect()->route('parliament.times.index')->withSuccess('Successfully updated.'); 
+
+        }
     }
 
     /**

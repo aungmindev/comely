@@ -7,6 +7,7 @@ import csvUploader from './components/csvUploader.vue'
 import dashboardView from './components/dashboardView.vue'
 import calendarSetting from './components/calendarSetting.vue'
 import calendarView from './components/calendarView.vue'
+import parliamentSession from './components/parliamentSession.vue'
 import Swal from 'sweetalert2'
 import Toast from 'sweetalert2'
 import VCalendar from 'v-calendar';
@@ -21,6 +22,7 @@ const app = createApp({
         'dashboard-view'     : dashboardView,
         'calendar-setting'           : calendarSetting,
         'calendar-view'           : calendarView,
+        'parliament-session'           : parliamentSession,
     }
 })
 app.use(VCalendar)

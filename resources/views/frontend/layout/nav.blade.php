@@ -16,9 +16,9 @@
               <li class="has-children ">
                     <a href="#meeting" class="nav-link" id="nav_text">@lang('menu.Session')<i class="fa-solid fa-caret-down ml-2"></i></a>
                     <ul class="dropdown" style="z-index: 999999">
-                    <li><a href="{{ route('session.view' , ['sessionType' => 'regular']) }}" class="nav-link">{{ __('menu.Regular Session') }}</a></li>
-                    <li><a  href="{{ route('session.view' , ['sessionType' => 'special']) }}">{{ __('menu.Special Session') }}</a></li>
-                    <li><a href="{{ route('session.view' , ['sessionType' => 'emergency']) }}" class="nav-link">{{ __('menu.Emergency Session') }}</a></li>
+                    <li><a href="{{ route('session.view' , ['sessionType' => 1]) }}" class="nav-link">{{ __('menu.Regular Session') }}</a></li>
+                    <li><a  href="{{ route('session.view' , ['sessionType' => 2]) }}">{{ __('menu.Special Session') }}</a></li>
+                    <li><a href="{{ route('session.view' , ['sessionType' => 3]) }}" class="nav-link">{{ __('menu.Emergency Session') }}</a></li>
                     {{-- <li class="has-children">
                         <a href="#">More Links</a>
                         <ul class="dropdown">

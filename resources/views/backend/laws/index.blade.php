@@ -80,18 +80,27 @@
                                       </div>
                                       
 
-                                    <div class="mb-3">
-                                            <div class="row">
-                                              <div class="col">
-                                                <label for="law_time" class="form-label">Session Time (Myanmar)<span class="text-danger">*</span></label>
-                                                <input required type="text" class="form-control" placeholder="ပထမပုံမှန်အစည်းအဝေး" name="session_time" id="">
-                                              </div>
-                                              <div class="col">
-                                                <label for="law_time_en" class="form-label">Session Time (English)<span class="text-danger">*</span></label>
-                                                <input required type="text" class="form-control" placeholder="First Regular Session" name="session_time_en" id="">
-                                              </div>
-                                            </div>
-                                      </div>
+                                      <div class="mb-3">
+                                        <div class="row">
+                                          <div class="col">
+                                            <label for="session_time" class="form-label">Session Time (Myanmar)<span class="text-danger">*</span></label>
+                                          
+                                            <select class="form-control" name="session_time" id="" required>
+                                              @foreach ($psessiontimes as $psessiontime)
+                                                  <option value="{{ $psessiontime->id }}" >{{ $psessiontime->name }}</option>
+                                              @endforeach
+                                              </select>
+                                          </div>
+                                          <div class="col">
+                                            <label for="session_time_en" class="form-label">Session Time (English)<span class="text-danger">*</span></label>
+                                            <select class="form-control" name="session_time_en" id="" required>
+                                              @foreach ($psessiontimes as $psessiontime)
+                                                  <option value="{{ $psessiontime->id }}" >{{ $psessiontime->name_en }}</option>
+                                              @endforeach
+                                              </select>
+                                          </div>
+                                        </div>
+                                  </div>
 
                                       <div class="mb-3">
                                         <div class="row">
@@ -210,18 +219,27 @@
                                       </div>
                                       
 
-                                    <div class="mb-3">
-                                            <div class="row">
-                                              <div class="col">
-                                                <label for="law_time" class="form-label">Session Time (Myanmar)<span class="text-danger">*</span></label>
-                                                <input required type="text" class="form-control" placeholder="ပထမပုံမှန်အစည်းအဝေး" name="session_time" id="session_time">
-                                              </div>
-                                              <div class="col">
-                                                <label for="law_time_en" class="form-label">Session Time (English)<span class="text-danger">*</span></label>
-                                                <input required type="text" class="form-control" placeholder="First Regular Session" name="session_time_en" id="session_time_en">
-                                              </div>
-                                            </div>
-                                      </div>
+                                      <div class="mb-3">
+                                        <div class="row">
+                                          <div class="col">
+                                            <label for="session_time" class="form-label">Session Time (Myanmar)<span class="text-danger">*</span></label>
+                                          
+                                            <select class="form-control" name="session_time" id="" required>
+                                              @foreach ($psessiontimes as $psessiontime)
+                                                  <option value="{{ $psessiontime->id }}" id="{{ $psessiontime->name }}">{{ $psessiontime->name }}</option>
+                                              @endforeach
+                                              </select>
+                                          </div>
+                                          <div class="col">
+                                            <label for="session_time_en" class="form-label">Session Time (English)<span class="text-danger">*</span></label>
+                                            <select class="form-control" name="session_time_en"  required>
+                                              @foreach ($psessiontimes as $psessiontime)
+                                                  <option value="{{ $psessiontime->id }}" id="{{ $psessiontime->name }}">{{ $psessiontime->name_en }}</option>
+                                              @endforeach
+                                              </select>
+                                          </div>
+                                        </div>
+                                  </div>
 
                                       <div class="mb-3">
                                         <div class="row">
@@ -360,7 +378,7 @@
                 columns: [
                     { data: "law_type", name: "law_type" },
                     { data: "parliament_times_id", name: "parliament_times_id" },
-                    { data: "session_time", name: "session_time" },
+                    { data: "session_time_id", name: "session_time_id" },
                     { data: "law_name", name: "law_name" },
                     { data: "dop", name: "dop" },
                     { data: "proposed_from", name: "proposed_from" },
@@ -376,16 +394,16 @@
                 });
             });
 
-            function edit(id,law_type,parliament_times_id,session_time,session_time_en,law_name,law_name_en,dop,proposed_from,proposed_from_en,dopd,doprd,summary,summary_en,pdf,image){
-                
+            function edit(id,law_type,parliament_times_id,session_time,law_name,law_name_en,dop,proposed_from,proposed_from_en,dopd,doprd,summary,summary_en,pdf,image){
                 $('#addSessionedit').modal('show');
                 $("#"+law_type).attr("selected" , false);
                 $("#"+parliament_times_id).attr("selected" , false);
+                $("#"+session_time).attr("selected" , false);
+                
                 $('#update_id').val(id);
                 $('#old_image').val(image);
                 $('#old_pdf').val(pdf);
                 $('#session_time').val(session_time);
-                $('#session_time_en').val(session_time_en);
                 $('#law_title').val(law_name);
                 $('#law_title_en').val(law_name_en);
                 $('#law_date_of_publication').val(dop);
@@ -395,6 +413,7 @@
                 $('#law_report_read').val(doprd);
                 $("#"+law_type).attr("selected" , true);
                 $("#"+parliament_times_id).attr("selected" , true);
+                $("#"+session_time).attr("selected" , true);
                 // roles.map((name) => {
                 //     $("#"+name).attr("selected" , true);
                 // })

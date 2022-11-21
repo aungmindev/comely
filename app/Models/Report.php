@@ -5,21 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class QandProposal extends Model
+class Report extends Model
 {
     use HasFactory;
     protected $fillable = [
-            'qnadp_type' ,
-            'isstar',
-            'parliament_times_id',
-            'title' ,
-            'title_en' ,
-            'session_time_id' ,
-            'pdf',
-            'image' ,
-            'summary' ,
-            'summary_en',
-    ];
+        'parliament_times_id',
+        'title' ,
+        'title_en' ,
+        'session_time_id' ,
+        'pdf',
+        'image' ,
+        'summary' ,
+        'summary_en',
+];
     public function parliament_time()
     {
         return $this->belongsTo(Parliament::class , 'parliament_times_id');

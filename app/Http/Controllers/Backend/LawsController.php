@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Law;
 use App\Models\Parliament;
+use App\Models\Sessiontime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
@@ -18,8 +19,10 @@ class LawsController extends Controller
      */
     public function index()
     {
+
         $ptimes = Parliament::all();
-        return view('backend.laws.index' , compact('ptimes'));
+        $psessiontimes = Sessiontime::all();
+        return view('backend.laws.index' , compact('ptimes' , 'psessiontimes'));
     }
 
     /**
@@ -76,8 +79,7 @@ class LawsController extends Controller
             'parliament_times_id' => $request->ptimes,
             'law_name' => $request->law_title,
             'law_name_en' => $request->law_title_en,
-            'session_time' => $request->session_time,
-            'session_time_en' => $request->session_time_en,
+            'session_time_id' => intval($request->session_time),
             'dop' => $request->law_date_of_publication,
             'proposed_from' => $request->law_proposed_from,
             'proposed_from_en' => $request->law_proposed_from_en,
@@ -100,7 +102,7 @@ class LawsController extends Controller
      */
     public function show()
     {
-        $data = Law::with('parliament_time')->orderBy('created_at' , 'desc')->get();
+        $data = Law::with('parliament_time' , 'session_times')->orderBy('created_at' , 'desc')->get();
 
         return DataTables::of($data)
         ->editColumn('parliament_times_id' , function($data){
@@ -109,7 +111,9 @@ class LawsController extends Controller
         ->editColumn('created_at' , function($data){
             return date('M Y , d' , strtotime($data->created_at));
         })
-        
+        ->editColumn('session_time_id' , function($data){
+            return $data->session_times->name;
+        })
         ->editColumn('pdf' , function($data){
             return '<a download href="'.asset('/uploads/laws/pdf/'.$data->pdf).'" ><span class="btn btn-sm btn-primary"> <i class="fas fa-download"></i></span></a>';
         })
@@ -124,7 +128,7 @@ class LawsController extends Controller
             return ' 
                 <div class="row">
                     <div class="col-lg-6">
-                     <span onclick="edit(`'.$data->id.'`,`'.$data->law_type.'`,`'.$data->parliament_time->name.'`,`'.$data->session_time.'`,`'.$data->session_time_en.'`,`'.$data->law_name.'`,`'.$data->law_name_en.'`,`'.$data->dop.'`,`'.$data->proposed_from.'`,`'.$data->proposed_from_en.'`,`'.$data->dopd.'`,`'.$data->doprd.'`,`'.$data->summary.'`,`'.$data->summary_en.'`,`'.$data->pdf.'`,`'.$data->image.'`)" class="btn btn-sm btn-warning d-inline"><i class="fas fa-edit"></i> </span>
+                     <span onclick="edit(`'.$data->id.'`,`'.$data->law_type.'`,`'.$data->parliament_time->name.'`,`'.$data->session_times->name.'`,`'.$data->law_name.'`,`'.$data->law_name_en.'`,`'.$data->dop.'`,`'.$data->proposed_from.'`,`'.$data->proposed_from_en.'`,`'.$data->dopd.'`,`'.$data->doprd.'`,`'.$data->summary.'`,`'.$data->summary_en.'`,`'.$data->pdf.'`,`'.$data->image.'`)" class="btn btn-sm btn-warning d-inline"><i class="fas fa-edit"></i> </span>
                     </div>
                     <div class="col-lg-6">
                      <span onclick="edit(`'.$data->id.'`,`'.$data->session_type.'`,`'.$data->session_data_type.'`,`'.$data->parliament_times_id.'`,`'.$data->session_time.'`,`'.$data->session_time_en.'`,`'.$data->title.'`,`'.$data->title_en.'`,`'.$data->date.'`,`'.$data->summary.'`,`'.$data->summary_en.'`,`'.$data->pdf.'`,`'.$data->image.'`)" class="btn btn-sm btn-danger d-inline"><i class="fas fa-trash"></i> </span>
@@ -196,8 +200,7 @@ class LawsController extends Controller
             'parliament_times_id' => $request->ptimes,
             'law_name' => $request->law_title,
             'law_name_en' => $request->law_title_en,
-            'session_time' => $request->session_time,
-            'session_time_en' => $request->session_time_en,
+            'session_time_id' => intval($request->session_time),
             'dop' => $request->law_date_of_publication,
             'proposed_from' => $request->law_proposed_from,
             'proposed_from_en' => $request->law_proposed_from_en,

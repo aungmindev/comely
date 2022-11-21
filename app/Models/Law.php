@@ -12,8 +12,7 @@ class Law extends Model
         'parliament_times_id' ,
         'law_name' ,
         'law_name_en' ,
-        'session_time' ,
-        'session_time_en' ,
+        'session_time_id' ,
         'dop' ,
         'proposed_from' ,
         'proposed_from_en',
@@ -28,5 +27,10 @@ class Law extends Model
     public function parliament_time()
     {
         return $this->belongsTo(Parliament::class , 'parliament_times_id');
+    }
+
+    public function session_times()
+    {
+        return $this->belongsTo(Sessiontime::class , 'session_time_id');
     }
 }

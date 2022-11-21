@@ -5,297 +5,89 @@
 
     <div id="app" class="">
         <div class="outline_bar container mt-lg-2 mb-3">
-            <ul class=" nav nav-pills nav-justified rounded-0 mb-3 mt-2" id="pills-tab" role="tablist">
-                <li class="nav-item " role="presentation">
-                  <button data-bs-toggle="offcanvas" data-bs-target="#firsttime" class="nav-link active p-3 rounded-0 d-inline-block" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('all.firsttime') }} <i class="d-none d-lg-block fa-solid fa-caret-down float-end"></i> </button>
-                </li>
-                <li class="nav-item " role="presentation">
-                  <button data-bs-toggle="offcanvas" data-bs-target="#secondtime" class="nav-link p-3 rounded-0 d-inline-block" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{{ __('all.secondtime') }} <i class="d-none d-lg-block fa-solid fa-caret-down float-end"></i></button>
-                </li>
-                <li class="nav-item " role="presentation">
-                  <button data-bs-toggle="offcanvas" data-bs-target="#thirdtime" class="nav-link p-3 rounded-0 d-inline-block" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('all.thirdtime') }} <i class="d-none d-lg-block fa-solid fa-caret-down float-end"></i></button>
-                </li>
-              </ul>
-              
+          <parliament-session :session-type="{{ $sessionType }}"></parliament-session>
+          <ul class=" nav nav-pills nav-justified rounded-0 mb-3 mt-2" id="pills-tab" role="tablist">
+            <li class="nav-item " role="presentation">
+              <button data-bs-toggle="offcanvas" data-bs-target="#firsttime" class="nav-link  p-3 {{ $ptimes == 1 ? 'active' : '' }} rounded-0 d-inline-block" id="pills-home-tab"  type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('all.firsttime') }}<i class="d-none d-lg-block fa-solid fa-caret-down float-end"></i> </button>
+            </li>
+            <li class="nav-item " role="presentation">
+              <button data-bs-toggle="offcanvas" data-bs-target="#secondtime" class="nav-link p-3 r{{ $ptimes == 2 ? 'active' : '' }}ounded-0 d-inline-block" id="pills-profile-tab"  type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{{ __('all.secondtime') }}<i class="d-none d-lg-block fa-solid fa-caret-down float-end"></i></button>
+            </li>
+            <li class="nav-item " role="presentation">
+              <button data-bs-toggle="offcanvas" data-bs-target="#thirdtime" class="nav-link {{ $ptimes == 3 ? 'active' : '' }} p-3 rounded-0 d-inline-block" id="pills-contact-tab"  type="button" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('all.thirdtime') }} <i class="d-none d-lg-block fa-solid fa-caret-down float-end"></i></button>
+            </li>
+          </ul>
 
-
-                <div style="position : absolute ; top : 0rem ;  ;overflow:hidden" class="h-50 offcanvas offcanvas-top" tabindex="-1" id="firsttime" aria-labelledby="offcanvasTopLabel">
-                    <div class="offcanvas-header">
-                        <h5 id="offcanvasTopLabel"></h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="container">
-                            <div class="row">
-                                
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="position : absolute ; top : 0rem ;  ;overflow:hidden" class="h-50 offcanvas offcanvas-top" tabindex="-1" id="secondtime" aria-labelledby="offcanvasTopLabel">
-                    <div class="offcanvas-header">
-                        <h5 id="offcanvasTopLabel"></h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="position : absolute ; top : 0rem ;  ;overflow:hidden" class="h-50 offcanvas offcanvas-top" tabindex="-1" id="thirdtime" aria-labelledby="offcanvasTopLabel">
-                    <div class="offcanvas-header">
-                        <h5 id="offcanvasTopLabel"></h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-4 mt-2">
-                                    <div class="accordion" id="accordionExample">
-                                        
-                                        <div class="accordion-item">
-                                          <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                ပထမပုံမှန်အစည်းအဝေး
-                                            </button>
-                                          </h2>
-                                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <nav class="nav flex-column card">
-                                                    <a class="nav-link bg-warning border-bottom" aria-current="page" href="#">အစည်းအဝေးအစီအစဉ်များ <i class="fa-solid fa-photo-film float-end"></i></a>
-                                                    <a class="nav-link bg-warning border-bottom" href="#">အစည်းအဝေးမှတ်တမ်းများ<i class="fa-solid fa-list float-end"></i></a>
-                                                  </nav>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             <div class="row">
                 <div class="col-lg-8" >
                     @if(session()->get('locale') == 'mm')
-
-                            <div class="card p-0">
-                                <div class="row">
-                                    <div class="col-4" id="background">
-                                        <h5 class="text-center mt-3">{{ date('d') }}</h5>
-                                        <p class="text-center">{{ date('F') }}</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body border-0">
-                                            <h5 class="font-weight-bold">၁၂ ရက်မြောက်နေ့ အစီအစဉ်</h5>
-                                        </div>
-                                        <div class="card-footer no-gutters ">
-                                            {{ date('Y-m-d') }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @foreach ($thirdTimeSessions as $thirdTimeSession)
                             <div class="card p-0 mt-2">
-                                <div class="row">
-                                    <div class="col-4" id="background">
-                                        <h5 class="text-center mt-3">{{ date('d') }}</h5>
-                                        <p class="text-center">{{ date('F') }}</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body">
-                                            <h5 class="font-weight-bold">စတုတ္ထနေ့ အစီအစဉ်</h5>
-                                        </div>
-                                        <div class="card-footer no-gutters">
-                                            {{ date('Y-m-d') }}
-                                        </div>
-                                    </div>
-                                </div>
+                              <div class="d-flex">
+                                <div class="col-3  rounded-start d-flex justify-content-center  align-items-center p-2" id="background">
+                                  <div class="row card-body">
+                                      <div class="col-md-12">
+                                        <h5 class=" text-center">{{ date('d' , strtotime($thirdTimeSession->date)) }}</h5>
+                                      </div>
+                                      <div class="col-md-12">
+                                        <h6 class=" text-center">{{ date('F' , strtotime($thirdTimeSession->date)) }}</h6>
+                                      </div>
+                                    </div>  
+                              
+                                 </div>
+                                  <div class="col-lg-9">
+                                      <div class="card-body border-0">
+                                          <a href="{{ route('session.frontend.detail' , ['id' => $thirdTimeSession->id]) }}"><h6 class="font-weight-bold title_design">{{ $thirdTimeSession->title }}</h6></a>
+                                      </div>
+                                      <div class="card-footer no-gutters ">
+                                          {{ date('d F , Y' , strtotime($thirdTimeSession->date)) }}
+                                          <p class="float-right text-muted pt-3 pt-lg-0">{{$thirdTimeSession->session_times->name }}</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                            @endforeach
+                            
+                            <div>
+                                @if (count($thirdTimeSessions) <= 0)
+                                  <p class="text-danger text-center">No Data Available</p>
+                                @endif
                             </div>
+
+                            <div class="mt-2 p-2">
+                              {{ $thirdTimeSessions->links() }}
+
+                          </div>
+                            
                     @else
                         
-
+                    @foreach ($thirdTimeSessions as $thirdTimeSession)
+                    <div class="card p-0 mt-2">
+                      <div class="d-flex">
+                        <div class="col-3  rounded-start d-flex justify-content-center  align-items-center p-2" id="background">
+                          <div class="row card-body">
+                              <div class="col-md-12">
+                                <h5 class=" text-center">{{ date('d' , strtotime($thirdTimeSession->date)) }}</h5>
+                              </div>
+                              <div class="col-md-12">
+                                <h6 class=" text-center">{{ date('F' , strtotime($thirdTimeSession->date)) }}</h6>
+                              </div>
+                            </div>  
+                      
+                         </div>
+                          <div class="col-lg-9">
+                              <div class="card-body border-0">
+                                  <a href="{{ route('session.frontend.detail' , ['id' => $thirdTimeSession->id]) }}"><h6 class="font-weight-bold title_design">{{ $thirdTimeSession->title_en }}</h6></a>
+                              </div>
+                              <div class="card-footer no-gutters ">
+                                  {{ date('d F , Y' , strtotime($thirdTimeSession->date)) }}
+                                  <p class="float-right text-muted pt-3 pt-lg-0">{{$thirdTimeSession->session_times->name_en }}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                    @endforeach
                        
                     @endif
 
@@ -314,9 +106,9 @@
 
  @include('frontend.layout.footer')
 </div>
-
+  @section('script')
     <script>
-        
+          
     </script>
-    
+    @endsection
 </x-frontend-layout>

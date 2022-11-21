@@ -23,4 +23,8 @@ class Parliament extends Model
     {
         return $this->hasMany(QandProposal::class , 'parliament_times_id');
     }
+     public function reports()
+    {
+        return $this->hasMany(Report::class , 'parliament_times_id');
+    }
 }

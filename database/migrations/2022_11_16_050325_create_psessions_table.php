@@ -15,11 +15,10 @@ class CreatePsessionsTable extends Migration
     {
         Schema::create('psessions', function (Blueprint $table) {
             $table->id();
-            $table->string('session_type')->index();
+            $table->string('sessiontype_id')->index();
             $table->string('session_data_type')->index();
             $table->integer('parliament_times_id')->index();
-            $table->string('session_time')->index();
-            $table->string('session_time_en')->index();
+            $table->string('session_time_id')->index();
             $table->string('title');
             $table->string('title_en');
             $table->string('date')->index();

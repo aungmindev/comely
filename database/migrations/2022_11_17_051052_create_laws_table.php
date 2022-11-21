@@ -17,8 +17,7 @@ class CreateLawsTable extends Migration
             $table->id();
             $table->string('law_type')->index();
             $table->integer('parliament_times_id')->index();
-            $table->string('session_time')->index()->nullable();
-            $table->string('session_time_en')->index()->nullable();
+            $table->string('session_time_id')->index();
             $table->string('law_name');
             $table->string('law_name_en');
             $table->date('dop')->index();

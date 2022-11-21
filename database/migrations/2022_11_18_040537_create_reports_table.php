@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQandProposalsTable extends Migration
+class CreateReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateQandProposalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('qand_proposals', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->string('qnadp_type')->index();
-            $table->integer('isstar')->index();
             $table->integer('parliament_times_id')->index();
             $table->string('session_time_id')->index();
             $table->string('title');
@@ -36,6 +34,6 @@ class CreateQandProposalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qand_proposals');
+        Schema::dropIfExists('reports');
     }
 }

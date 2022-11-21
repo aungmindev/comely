@@ -59,9 +59,7 @@
                                 <div class="modal-body">
                                     <div class="mb-3">
                                         <label for="law_type" class="form-label"> Question (Or) Proposal <span class="text-danger">*</span></label>
-                                        <input type="hidden" name="old_image" id="old_image">
-                                        <input type="hidden" name="old_pdf" id="old_pdf">
-                                        <input type="hidden" name="update_id" id="update_id">
+                                       
                                         <select class="form-control" name="qandp_type" id="" required>
                                             <option id="မေးခွန်း">မေးခွန်း</option>
                                             <option id="အဆို">အဆို</option>
@@ -84,18 +82,27 @@
                                       </div>
                                       
 
-                                    <div class="mb-3">
-                                            <div class="row">
-                                              <div class="col">
-                                                <label for="law_time" class="form-label">Session Time (Myanmar)<span class="text-danger">*</span></label>
-                                                <input required type="text" class="form-control" placeholder="ပထမပုံမှန်အစည်းအဝေး" name="session_time" id="">
-                                              </div>
-                                              <div class="col">
-                                                <label for="law_time_en" class="form-label">Session Time (English)<span class="text-danger">*</span></label>
-                                                <input required type="text" class="form-control" placeholder="First Regular Session" name="session_time_en" id="">
-                                              </div>
-                                            </div>
-                                      </div>
+                                      <div class="mb-3">
+                                        <div class="row">
+                                          <div class="col">
+                                            <label for="session_time" class="form-label">Session Time (Myanmar)<span class="text-danger">*</span></label>
+                                          
+                                            <select class="form-control" name="session_time" id="" required>
+                                              @foreach ($psessiontimes as $psessiontime)
+                                                  <option value="{{ $psessiontime->id }}" >{{ $psessiontime->name }}</option>
+                                              @endforeach
+                                              </select>
+                                          </div>
+                                          <div class="col">
+                                            <label for="session_time_en" class="form-label">Session Time (English)<span class="text-danger">*</span></label>
+                                            <select class="form-control" name="session_time_en" id="" required>
+                                              @foreach ($psessiontimes as $psessiontime)
+                                                  <option value="{{ $psessiontime->id }}" >{{ $psessiontime->name_en }}</option>
+                                              @endforeach
+                                              </select>
+                                          </div>
+                                        </div>
+                                  </div>
 
                                       <div class="mb-3">
                                         <div class="row">
@@ -165,7 +172,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    
+                                  <input type="hidden" name="old_image" id="old_image">
+                                  <input type="hidden" name="old_pdf" id="old_pdf">
+                                  <input type="hidden" name="update_id" id="update_id">
                                   <div class="mb-3">
                                     <label for="law_type" class="form-label"> Question (Or) Proposal <span class="text-danger">*</span></label>
                                     <select class="form-control" name="qandp_type" id="qandp_type" required>
@@ -191,18 +200,27 @@
                                       </div>
                                       
 
-                                    <div class="mb-3">
-                                            <div class="row">
-                                              <div class="col">
-                                                <label for="law_time" class="form-label">Session Time (Myanmar)<span class="text-danger">*</span></label>
-                                                <input required type="text" class="form-control" placeholder="ပထမပုံမှန်အစည်းအဝေး" name="session_time" id="session_time">
-                                              </div>
-                                              <div class="col">
-                                                <label for="law_time_en" class="form-label">Session Time (English)<span class="text-danger">*</span></label>
-                                                <input required type="text" class="form-control" placeholder="First Regular Session" name="session_time_en" id="session_time_en">
-                                              </div>
-                                            </div>
-                                      </div>
+                                      <div class="mb-3">
+                                        <div class="row">
+                                          <div class="col">
+                                            <label for="session_time" class="form-label">Session Time (Myanmar)<span class="text-danger">*</span></label>
+                                          
+                                            <select class="form-control" name="session_time" id="" required>
+                                              @foreach ($psessiontimes as $psessiontime)
+                                                  <option value="{{ $psessiontime->id }}" id="{{ $psessiontime->name }}">{{ $psessiontime->name }}</option>
+                                              @endforeach
+                                              </select>
+                                          </div>
+                                          <div class="col">
+                                            <label for="session_time_en" class="form-label">Session Time (English)<span class="text-danger">*</span></label>
+                                            <select class="form-control" name="session_time_en"  required>
+                                              @foreach ($psessiontimes as $psessiontime)
+                                                  <option value="{{ $psessiontime->id }}" id="{{ $psessiontime->name }}">{{ $psessiontime->name_en }}</option>
+                                              @endforeach
+                                              </select>
+                                          </div>
+                                        </div>
+                                  </div>
 
                                       
                                       <div class="mb-3">
@@ -313,7 +331,7 @@
 
                 columns: [
                     { data: "parliament_times_id", name: "parliament_times_id" },
-                    { data: "session_time", name: "session_time" },
+                    { data: "session_time_id", name: "session_time_id" },
                     { data: "qnadp_type", name: "qnadp_type" },
                     { data: "isstar", name: "isstar" },
                     { data: "title", name: "title" },
@@ -327,23 +345,24 @@
                 });
             });
 
-            function edit(id,qandptype,parliament_times_id,session_time,session_time_en,title,title_en,isstar,summary,summary_en,pdf,image){
+            function edit(id,qandptype,parliament_times_id,session_time,title,title_en,isstar,summary,summary_en,pdf,image){
               if(isstar == 1){var star = 'ကြယ်ပြ'}
               if(isstar == 0){var star = 'ကြယ်မပြ'}
                 $("#"+qandptype).attr("selected" , false);
                 $("#"+star).attr("selected" , false);
                 $("#"+parliament_times_id).attr("selected" , false);
+                $("#"+session_time).attr("selected" , false);
               $('#addSessionedit').modal('show');
                 $('#update_id').val(id);
                 $('#old_image').val(image);
                 $('#old_pdf').val(pdf);
                 $('#session_time').val(session_time);
-                $('#session_time_en').val(session_time_en);
                 $('#qandp_title').val(title);
                 $('#qandp_title_en').val(title_en);
                 $("#"+qandptype).attr("selected" , true);
                 $("#"+star).attr("selected" , true);
                 $("#"+parliament_times_id).attr("selected" , true);
+                $("#"+session_time).attr("selected" , true);
                 // roles.map((name) => {
                 //     $("#"+name).attr("selected" , true);
                 // })
