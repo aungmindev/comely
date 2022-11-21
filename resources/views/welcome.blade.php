@@ -171,7 +171,7 @@
                    
                  </div>
 
-                 <div class="col-lg-4" id="hotnews">
+                 <div class="col-lg-4 mt-4 mt-lg-0" id="hotnews">
                   <div>
                     <h4 class="mb-4">{{ __('welcome.Hot News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
                     <div class="swiper">
@@ -239,7 +239,7 @@
                   
                 </div>
 
-                <div class="col-lg-4" id="hotnews">
+                <div class="col-lg-4 mt-4 mt-lg-0" id="hotnews">
                   <div>
                     <h4 class="mb-4">{{ __('welcome.Latest News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
                     <div class="swiper">
@@ -364,7 +364,7 @@
                         @foreach ($photo_videos[0] as $photo_video)
                             <div class="col-lg-3">
                               <div class="box">
-                              {{-- <iframe width="400" height="200" src="{{ $photo_video->image_or_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
+                              <iframe width="400" height="200" src="{{ $photo_video->image_or_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                               {{-- <img id="image_video_image" class="img-fluid border-bottom border-3 border-warning shadow-md" src="{{ asset('uploads/gallery/'.$photo_video->image_or_video) }}"> --}}
                               <div class="box-content">
                                 {{-- <ul class="icon">
