@@ -173,7 +173,7 @@
 
                  <div class="col-lg-4" id="hotnews">
                   <div>
-                    <h4 class="mb-4">{{ __('welcome.Breaking News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
+                    <h4 class="mb-4">{{ __('welcome.Hot News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
                     <div class="swiper">
                      <!-- Additional required wrapper -->
                      <div class="swiper-wrapper">
@@ -241,7 +241,7 @@
 
                 <div class="col-lg-4" id="hotnews">
                   <div>
-                    <h4 class="mb-4">{{ __('welcome.Breaking News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
+                    <h4 class="mb-4">{{ __('welcome.Latest News') }} <a href="{{ route('news.frontend.viewall' , ['cat_id' => 1]) }}" class="d-inline btn btn-danger float-end btn-sm text-white">{{ __('welcome.view_all') }}<i class="fas fa-arrow-right ml-2"></i></a></h4>
                     <div class="swiper">
                      <!-- Additional required wrapper -->
                      <div class="swiper-wrapper">
