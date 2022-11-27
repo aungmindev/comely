@@ -440,7 +440,9 @@
                         </div>
                       @endif
                     </div>
+                    <a href="{{ route('gallery.show') }}"><button class="btn bnt-sm btn-danger mt-3"> ဆက်လက်ကြည့်ရန် <i class="fas fa-arrow-right"></i></button></a>
                   </div>
+                  
 
 
 

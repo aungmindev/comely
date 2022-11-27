@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\parliamentController;
 use App\Http\Controllers\Backend\PSessionController;
 use App\Http\Controllers\Backend\QandPController;
 use App\Http\Controllers\Frontend\activityController as FrontendActivityController;
+use App\Http\Controllers\Frontend\GalleryController as FrontendGalleryController;
 use App\Http\Controllers\Frontend\LawController;
 use App\Http\Controllers\Frontend\QandproposalController;
 use App\Http\Controllers\Frontend\ReportController as FrontendReportController;
@@ -64,6 +65,8 @@ Route::get('/activity/show', [FrontendActivityController::class , 'index'])->nam
 // calendar
 Route::post('/calendar/setting/get', [CalendarController::class , 'getLists'])->name('calendar.setting.get');
 
+// Gallery
+Route::get('/gallery/show', [FrontendGalleryController::class , 'index'])->name('gallery.show');
 
 //Frontend
 Route::get('/app/detail/frontend/{model}/{view}/{id}', function ($model , $view , $id){
