@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Salehistory;
+use App\Models\Slip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -19,6 +20,22 @@ class ManualcashierController extends Controller
     {
         return view('backend.manualcashier.manualCashier');
     }
+    public function getProduct(Request $request)
+    {
+        $item_code = $request->itemCode;
+        $slip = Slip::latest()->first();
+        if($slip){
+            $slip_id = $slip->id += 1;
+        }else{
+            $slip_id = 1;
+        }
+        $product   = Product::with('brands' , 'categories')->find($item_code);
+        if($product){
+            return [$product , $slip_id];
+        }else{
+            return 'no-data';
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -27,30 +44,33 @@ class ManualcashierController extends Controller
      */
     public function cashier(Request $request)
     {
-        $item_code = $request->itemCode;
-        $product   = Product::with('brands' , 'categories')->find($item_code);
-        if($product){
-            $product->stock -= 1;
-            $product->update();
-    
-            Salehistory::create([
-                'product_id' => $item_code,
-                'item_code' => $product->item_code,
-                'product_name' => $product->name_en,
-                'price' => $product->after_discount_price,
-                'brand' => $product->brands->name_en,
-                'category' => $product->categories->name_en,
-            ]);
-    
-            return response()->json([
-                'status' => 200,
-            ]);
-        }else{
-            return response()->json([
-                'status' => 403,
-                'message' => 'Product item_code is wrong',
-            ]);
+        foreach($request->buying_lists as $buy){
+            $item_code = $buy['id'];
+            $product   = Product::with('brands' , 'categories')->find($item_code);
+            if($product){
+                $product->stock -= $buy['qty'];
+                $product->update();
+        
+                Salehistory::create([
+                    'product_id' => $item_code,
+                    'item_code' => $product->item_code,
+                    'product_name' => $product->name_en,
+                    'price' => $product->after_discount_price,
+                    'brand' => $product->brands->name_en,
+                    'category' => $product->categories->name_en,
+                    'sale_qty' => $buy['qty'],
+                ]);
+        
+                
+            }
         }
+
+        Slip::create([
+            'data' => json_encode($request->all()),
+        ]);
+        return response()->json([
+            'status' => 200,
+        ]);
         
     }
 
@@ -64,7 +84,7 @@ class ManualcashierController extends Controller
     {
         $date = date('Y-m-d');
         $data = DB::select(DB::raw("
-            SELECT product_id , item_code , product_name , price , brand , category , count(*) as saled_qty , date(created_at) as 'date'  FROM comely.salehistories where date(created_at) = '$date' 
+            SELECT product_id , item_code , product_name , price , brand , category , sum(sale_qty) as saled_qty , date(created_at) as 'date'  FROM comely.salehistories where date(created_at) = '$date' 
             group by product_id , item_code , product_name , price , brand , category , date;
         "));
 

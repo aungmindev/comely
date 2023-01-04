@@ -13,7 +13,9 @@ class Salehistory extends Model
     'product_name' ,
     'price' ,
     'brand' ,
-    'category' ,];
+    'category' ,
+    'sale_qty'
+];
 
     public function product()
     {

@@ -34,7 +34,7 @@
                               
                             <div class="alert shadow-xs " role="alert">
                                 <h4 class="" >Create New Product<hr>
-                                <a  href="{{ route('products.index') }}"><button class="btn btn-sm btn-phoenix-primary mt-xl-0 mt-4 float-right" type="button"><i class="fas fa-arrow-left mr-2"></i>Back to product lists</button></a>
+                                <a  href="{{ route('products.index') }}"><button class="btn btn-sm btn-phoenix-primary mt-xl-0  float-right" type="button"><i class="fas fa-arrow-left mr-2"></i>Back to product lists</button></a>
                               </h4>
                             </div>
 

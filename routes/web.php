@@ -74,6 +74,7 @@ Route::middleware([
 
     //Manual Buying Process
     Route::get('/manual/cashier', [ManualcashierController::class , 'index'])->name('manual.cashier.index');
+    Route::post('/manual/cashier/get/product', [ManualcashierController::class , 'getProduct'])->name('manual.cashier.get.product');
     Route::post('/manual/cashier/', [ManualcashierController::class , 'cashier'])->name('manual.cashier.cashier');
 
     //sale History

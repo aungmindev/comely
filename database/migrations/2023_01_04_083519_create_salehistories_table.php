@@ -18,6 +18,7 @@ class CreateSalehistoriesTable extends Migration
             $table->integer('product_id')->index();
             $table->string('item_code')->index();
             $table->string('product_name')->index();
+            $table->integer('sale_qty');
             $table->integer('price')->index();
             $table->string('brand')->index();
             $table->string('category')->index();

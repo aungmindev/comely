@@ -15,28 +15,25 @@
     
             <!-- Main Content -->
             <div class="content pt-0">
-                {{-- <dashboard-view></dashboard-view> --}}
-                
-                <div class="px-4 mx-lg-n6 px-lg-6 bg-white pt-7 border-y border-300">
-                  <div data-list='{"valueNames":["product","customer","rating","review","time"],"page":6}'>
-                    <div class="row align-items-end justify-content-between pb-5 g-3">
-                        <div id="">
-                            <div class="container-fluid p-0" >
-                               <h4 class="mb-3">Manual Cashier</h4>
+                <div class="px-xl-4 mx-xl-n6 pt-1">
     
-                                <div class="card shadow-sm h-lg-100 overflow-hidden" >
-                                  <manual-cashier></manual-cashier>
+                    <div class="col-12 col-xl-12">
+                      <div class="mb-5 mt-7 ">
+                            <h4 class="mb-3">Manual Cashier</h4>
 
-                                  </div>
+                       <div class="card">
+                        <manual-cashier></manual-cashier>
 
-                            </div>
-                        </div>
+                       </div>
+                        
+                      </div>
+                     
                     </div>
-                    
-                  </div>
-                </div>
-                
-              </div>
+                    <div class="col-12 col-xl-6">
+                      
+                    </div>
+                  </div>   
+            </div>
 
       
         {{-- @include('backend.layout.footer') --}}
