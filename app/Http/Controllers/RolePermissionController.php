@@ -131,7 +131,7 @@ class RolePermissionController extends Controller
             return redirect()->back()->withErrors($validator)->withModal('open');
         }
             $user = User::find($request->user_id);
-            $user->assignRole($request->roles);
+            $user->syncRoles([$request->roles]);
 
         if($request->password == null){
             User::where('id' , $request->user_id)->update([

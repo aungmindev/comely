@@ -5,6 +5,11 @@ window.Alpine = Alpine;
 Alpine.start();
 import csvUploader from './components/csvUploader.vue'
 import dashboardView from './components/dashboardView.vue'
+import colorView from './components/colorView.vue'
+import imageUpload from './components/imageUpload.vue'
+import manualCashier from './components/manualCashier.vue'
+import imageUploadEdit from './components/imageUploadEdit.vue'
+import priceCalculate from './components/priceCalculate.vue'
 import calendarSetting from './components/calendarSetting.vue'
 import calendarView from './components/calendarView.vue'
 import parliamentSession from './components/parliamentSession.vue'
@@ -29,6 +34,11 @@ const app = createApp({
         'law-view'           : lawView,
         'qandp-view'           : qandpView,
         'report-view'           : reportView,
+        'color-view'           : colorView,
+        'price-calculate'           : priceCalculate,
+        'image-upload'           : imageUpload,
+        'image-upload-edit'           : imageUploadEdit,
+        'manual-cashier'           : manualCashier,
     }
 })
 app.use(VCalendar)

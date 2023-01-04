@@ -10,11 +10,11 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-import bootstrap from 'bootstrap'
+// import bootstrap from 'bootstrap'
 global.jQuery = require('jquery');
+// import 'bootstrap/dist/css/bootstrap.min.css'
 require('datatables.net-bs4');
 require('datatables.net-buttons-bs4');
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

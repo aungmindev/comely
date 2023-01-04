@@ -8,18 +8,24 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link href="{{asset('images/logo.png')}}" rel="shortcut icon" type="image/png">
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/datatable.css') }}">
+        <script src="{{ asset('vendors/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+          <script src="{{ asset('vendors/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ asset('assets/js/config.js') }}"></script>
 
+
+        <link href="{{ asset('vendors/simplebar/simplebar.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link href="{{ asset('assets/css/theme.min.css') }}" type="text/css" rel="stylesheet" id="style-default">
+        <link href="{{ asset('assets/css/user.min.css') }}" type="text/css" rel="stylesheet" id="user-style-default">
         <!-- Styles -->
         @livewireStyles
 
         <!-- Scripts -->
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
         
        
 
@@ -52,15 +58,29 @@
         @stack('modals')
 
         @livewireScripts
-        <script src="{{ asset('js/tiny.js') }}" referrerpolicy="origin"></script>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('vendors/popper/popper.min.js') }}"></script>
+        <script src="{{ asset('vendors/bootstrap/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/datatable.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
-        <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
-        <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-        
+        <script src="{{ asset('js/datatable.min.js') }}"></script>
+        <script src="{{ asset('vendors/anchorjs/anchor.min.js') }}"></script>
+        <script src="{{ asset('vendors/is/is.min.js') }}"></script>
+        <script src="{{ asset('vendors/fontawesome/all.min.js') }}"></script>
+        <script src="{{ asset('vendors/lodash/lodash.min.js') }}"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+        <script src="{{ asset('vendors/list.js/list.min.js') }}"></script>
+        <script src="{{ asset('vendors/feather-icons/feather.min.js') }}"></script>
+        <script src="{{ asset('vendors/dayjs/dayjs.min.js') }}"></script>
+        <script src="{{ asset('assets/js/phoenix.js') }}"></script>
+        <script src="{{ asset('vendors/echarts/echarts.min.js') }}"></script>
+        <script src="{{ asset('vendors/chart/chart.min.js') }}"></script>
+        <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARdVcREeBK44lIWnv5-iPijKqvlSAVwbw&callback=revenueMapInit" async></script>
+        <script src="{{ asset('assets/js/ecommerce-dashboard.js') }}"></script>
+        <script src="{{ asset('js/tiny.js') }}"></script>
+        <script src="{{ asset('js/dropzone.min.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+
         <script>
             tinymce.init({
               selector: 'textarea#editor',
@@ -70,7 +90,6 @@
               menubar: false,
               });
           </script>
-
           @yield('script')
     </body>
 </html>
