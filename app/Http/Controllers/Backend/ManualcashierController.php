@@ -31,9 +31,19 @@ class ManualcashierController extends Controller
         }
         $product   = Product::with('brands' , 'categories')->find($item_code);
         if($product){
-            return [$product , $slip_id];
+            if($product->stock > 0){
+                return [$product , $slip_id];
+            }else{
+                return response()->json([
+                    'status' => 403,
+                    'message' => 'This product is out of stock',
+                ]);
+            }
         }else{
-            return 'no-data';
+            return response()->json([
+                'status' => 403,
+                'message' => 'Product item code is wrong.',
+            ]);
         }
     }
 
@@ -83,14 +93,29 @@ class ManualcashierController extends Controller
     public function show(Request $request)
     {
         $date = date('Y-m-d');
-        $data = DB::select(DB::raw("
+        $start_date = $request->start_date;
+        $end_date   = $request->end_date;
+        
+        if($start_date != null && $end_date != null){
+            $data = DB::select(DB::raw("
+            SELECT product_id , item_code , product_name , price , brand , category , sum(sale_qty) as saled_qty , date(created_at) as 'date'  FROM comely.salehistories 
+            where date(created_at) between '$start_date' and '$end_date'
+            group by product_id , item_code , product_name , price , brand , category , date;
+            ")); 
+        }else{
+            $data = DB::select(DB::raw("
             SELECT product_id , item_code , product_name , price , brand , category , sum(sale_qty) as saled_qty , date(created_at) as 'date'  FROM comely.salehistories where date(created_at) = '$date' 
             group by product_id , item_code , product_name , price , brand , category , date;
-        "));
+            "));
 
+        }
+        
         return DataTables::of($data)
         ->editColumn('saled_qty' , function($data){
             return '<span class="badge badge-phoenix badge-phoenix-success">'.$data->saled_qty.'</span>';
+        })
+        ->editColumn('created_at' , function($data){
+            return date('d F , Y' , strtotime($data->date));
         })
         ->editColumn('brand' , function($data){
             return '<span class="badge badge-phoenix badge-phoenix-primary">'.$data->brand.'</span>';

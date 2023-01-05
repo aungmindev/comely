@@ -25,7 +25,24 @@
                       {{-- <a href="{{ route('products.create') }}"><button class="btn btn-phoenix-primary float-right d-inline-block" type="button">Add New Products <i class="fas fa-arrow-right ml-2"></i></button></a> --}}
 
                     </div>
-
+                    
+                    <div class="">
+                        <div class="row">
+                            <div class="col-xl-2 mb-2">
+                              <label>From</label>
+                              <input type="date" class="form-control" id="start_date">
+                            </div>
+                            <div class="col-xl-2 mb-3">
+                              <label>To</label>
+                              <input type="date" class="form-control" id="end_date">
+                            </div>
+                            
+                            <div class="col-xl-2 mb-3">
+                              <label></label>
+                              <button class="btn btn-primary mt-xl-4" onclick="filter()">Search</button>
+                            </div>
+                        </div>
+                    </div>
                     
                     {{-- <p class="text-700">Where you generated most of the revenue</p> --}}
                   </div>
@@ -40,6 +57,7 @@
                                 <th class="border-top border-200 align-middle" scope="col" >Brand</th>
                                 <th class="border-top border-200 align-middle" scope="col" >Category</th>
                                 <th class="border-top border-200 align-middle" scope="col" >Sale Quantity</th>
+                                <th class="border-top border-200 align-middle" scope="col" >Date</th>
                               </tr>
                             </thead>
                             
@@ -82,8 +100,8 @@
                 }
             }
 
-        $(function () {
-                var table = $("#products").DataTable({
+        function dataTable(start_date = null , end_date = null ){
+          var table = $("#products").DataTable({
                 processing: true,
                 serverSide: true,
                 language: {
@@ -95,6 +113,7 @@
                     type: "post",
                     data: {
                     _token: document.head.querySelector('meta[name="csrf-token"]').content,
+                      start_date , end_date
                     },
                 },
 
@@ -105,12 +124,24 @@
                     { data: "brand", name: "brand" },
                     { data: "category", name: "category" },
                     { data: "saled_qty", name: "saled_qty" },
+                    { data: "created_at", name: "created_at" },
                 ],
 
                 "order": [[0, "desc" ]]
                 });
-            });
+        }
 
+        dataTable()
+        function filter(){
+                let start_date  = $('#start_date').val();
+                let end_date    = $('#end_date').val();
+                if(start_date != '' && end_date != ''){
+                  $("#products").dataTable().fnDestroy();
+                  dataTable(start_date , end_date )
+                }
+               
+                
+        }
             
     </script>
 @endsection

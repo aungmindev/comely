@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-xl-6">
+        <div class="col-xl-6" >
             <div>
         <div class="card-header p-3 bg-light">
             <div class="row align-items-center">
@@ -175,8 +175,8 @@ import axios from 'axios';
 
                    axios.post('/manual/cashier/get/product' , {'itemCode' : this.itemCode}).
                    then((response) => {
-                    if(response.data == 'no-data'){
-                        point.Alert('error' , 'Product item code is wrong')
+                    if(response.data.status == 403){
+                        point.Alert('error' , response.data.message)
                     }else{
                         response.data[0]['qty'] = point.qty
                         point.buying_lists.push(response.data[0])
@@ -196,7 +196,7 @@ import axios from 'axios';
                 this.total_price -= (price * qty)
             },
             cashier(){
-                if(this.paid != 0 && this.buying_lists.length > 0){
+                if(this.paid != 0 && this.buying_lists.length > 0 && this.paid >= this.total_price){
                     var point = this;
 
                    axios.post('/manual/cashier/' , this.$data).
@@ -211,17 +211,19 @@ import axios from 'axios';
                     }
                         console.log(response.data)
                    })
+                }else{
+                    this.Alert('error' , 'Input data is something wrong')
                 }
             },
             printOut(){
                 var printContents = document.getElementById('slip').innerHTML;
                 var originalContents = document.body.innerHTML;
-
                 document.body.innerHTML = printContents;
 
                 window.print();
 
                 document.body.innerHTML = originalContents;
+                location.reload()
             },
             printOutCancel(){
                 this.buying_lists = [];

@@ -25114,8 +25114,8 @@ __webpack_require__.r(__webpack_exports__);
         axios__WEBPACK_IMPORTED_MODULE_0___default().post('/manual/cashier/get/product', {
           'itemCode': this.itemCode
         }).then(function (response) {
-          if (response.data == 'no-data') {
-            point.Alert('error', 'Product item code is wrong');
+          if (response.data.status == 403) {
+            point.Alert('error', response.data.message);
           } else {
             response.data[0]['qty'] = point.qty;
             point.buying_lists.push(response.data[0]);
@@ -25132,7 +25132,7 @@ __webpack_require__.r(__webpack_exports__);
       this.total_price -= price * qty;
     },
     cashier: function cashier() {
-      if (this.paid != 0 && this.buying_lists.length > 0) {
+      if (this.paid != 0 && this.buying_lists.length > 0 && this.paid >= this.total_price) {
         var point = this;
         axios__WEBPACK_IMPORTED_MODULE_0___default().post('/manual/cashier/', this.$data).then(function (response) {
           console.log(response.data);
@@ -25146,6 +25146,8 @@ __webpack_require__.r(__webpack_exports__);
 
           console.log(response.data);
         });
+      } else {
+        this.Alert('error', 'Input data is something wrong');
       }
     },
     printOut: function printOut() {
@@ -25154,6 +25156,7 @@ __webpack_require__.r(__webpack_exports__);
       document.body.innerHTML = printContents;
       window.print();
       document.body.innerHTML = originalContents;
+      location.reload();
     },
     printOutCancel: function printOutCancel() {
       this.buying_lists = [];

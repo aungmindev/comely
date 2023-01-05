@@ -136,10 +136,8 @@ class StockController extends Controller
         ->addColumn('action', function ($data) {
             return ' 
              <a href="'.route('products.edit' , ['id' => $data->id]).'"><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></a>
-             <a href=""><button class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash"></i></button></a>
+             <a onclick="removeItem(`'.$data->id.'` , `'."Product".'` ,`'."no".'`)"><button class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash"></i></button></a>
             ';
-
-           
         })
         ->rawColumns(['action'])
         ->make(true);

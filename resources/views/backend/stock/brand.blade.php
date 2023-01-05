@@ -54,7 +54,7 @@
                                                             <td class="text-center">{{ $brand->name_en }}</td>
                                                             <td class="text-center">
                                                                 <span onclick="edit('{{ $brand->name }}' , '{{ $brand->name_en }}'  ,'{{ $brand->id }}')"><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></span>
-                                                                <a href="{{ route('app.model.delete' , ['model' => 'Spatie\Permission\Models\Role' , 'id' => $brand->id , 'default' => 'default']) }}"><button class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash"></i></button></a>
+                                                                <a onclick="removeItem('{{ $brand->id }}' , 'Brand' , 'no')"><button class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash"></i></button></a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -145,6 +145,13 @@
             $('#brand_name_en').val(brand_name_en);
             $('#brand_id').val(brand_id);
         }
+
+        function removeItem(id , model , default_model){
+            var cc = confirm('Are you sure to delete ?');
+            if(cc){
+              window.location = '{{ url("/app/delete") }}' +'/'+model+'/'+id+'/'+default_model
+            }
+          }
     </script>
 {{-- content end --}}
     @endsection

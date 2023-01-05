@@ -58,7 +58,7 @@
                                                             <td class="text-center">{{ $box->description }}</td>
                                                             <td class="text-center">
                                                                 <a href="{{ route('boxOption.edit' , ['id' => $box->id]) }}"><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></a>
-                                                                <a href=""><button class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash"></i></button></a>
+                                                                <a onclick="removeItem('{{ $box->id }}' , 'Box_option' , 'no')"><button class="btn btn-danger btn-sm ml-2"><i class="fas fa-trash"></i></button></a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -180,6 +180,13 @@
             $('#description').val(data.description)
             $('#description_en').val(data.description_en)
         }
+
+        function removeItem(id , model , default_model){
+            var cc = confirm('Are you sure to delete ?');
+            if(cc){
+              window.location = '{{ url("/app/delete") }}' +'/'+model+'/'+id+'/'+default_model
+            }
+          }
     </script>
 {{-- content end --}}
     @endsection

@@ -89,6 +89,8 @@
                     }
                     
                 }
+
+                
             }
 
         $(function () {
@@ -119,9 +121,19 @@
 
                 "order": [[0, "desc" ]]
                 });
+
+               
             });
 
             
+          function removeItem(id , model , default_model){
+            var cc = confirm('Are you sure to delete ?');
+            if(cc){
+              window.location = '{{ url("/app/delete") }}' +'/'+model+'/'+id+'/'+default_model
+            }
+          }
+
+         
     </script>
 @endsection
 </x-backend-layout>
